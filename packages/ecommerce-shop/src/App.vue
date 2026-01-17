@@ -3,6 +3,7 @@
         <!-- Header Navigation -->
         <header class="header ik-py-7">
             <IkFlex class="header-content ik-px-6"
+                    spacing="8"
                     grow_fixed_grow>
                 <div class="logo">
                     <IkLink to="/">
