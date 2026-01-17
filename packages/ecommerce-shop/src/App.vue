@@ -35,7 +35,10 @@
                 <h2 class="section-title">Featured Products</h2>
                 <IkGrid spacing_x="8"
                         spacing_y="8">
-                    <IkGridItem xxs-12 xs-6 sm-4 md-3
+                    <IkGridItem xxs-12
+                                xs-6
+                                sm-4
+                                md-3
                                 v-for="product in products"
                                 :key="product.id"
                                 class="product-card">
@@ -45,11 +48,15 @@
                                      cover
                                      lazy
                                      class="product-image" />
-                            <IkBadge v-if="product.sale"
-                                     design="error"
-                                     class="sale-badge">
+                            <IkChip v-if="product.sale"
+                                    design="error"
+                                    size="xs"
+                                    class="sale-badge">
+                                <IkIcon icon="tag"
+                                        class="ik-mr-3"
+                                        size_px="12" />
                                 Sale
-                            </IkBadge>
+                            </IkChip>
                         </div>
                         <div class="product-info">
                             <h3 class="product-name">{{ product.name }}</h3>
@@ -101,7 +108,8 @@ import { IkFlex } from '@ikol/ui-kit/components/IkFlex';
 import { IkGrid, IkGridItem } from '@ikol/ui-kit/components/IkGrid';
 import { IkImage } from '@ikol/ui-kit/components/IkImage';
 import { IkLink } from '@ikol/ui-kit/components/IkLink';
-import { IkBadge } from '@ikol/ui-kit/components/IkBadge';
+import { IkChip } from '@ikol/ui-kit/components/IkChip';
+import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
 
 interface Product {
     id: number;
@@ -277,6 +285,9 @@ const addToCart = (product: Product) => {
     position: absolute;
     top: 12px;
     right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .product-info {
