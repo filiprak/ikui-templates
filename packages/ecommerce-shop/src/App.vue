@@ -42,21 +42,23 @@
             <div class="hero-wrapper ik-px-6 ik-py-10">
                 <div class="hero-container">
                     <div class="hero-content">
-                        <h1 class="hero-title ik-text--display-lg ik-text--bold ik-mb-4">Discover Quality Products</h1>
+                        <h1 class="hero-title ik-text--display-lg ik-text--bold ik-mb-4">Discover Quality Products
+                        </h1>
                         <p class="hero-subtitle ik-text--xl ik-mb-8">Curated collection of premium items for your
                             everyday
                             needs</p>
-                        <IkButton design="primary"
-                                  class="ik-mr-5"
+                        <IkButton class="ik-mr-5"
                                   size="md"
                                   round
+                                  inherit_color
                                   @click="scrollToProducts">
                             Shop Now
                         </IkButton>
-                        <IkButton design="primary"
-                                  flat
+                        <IkButton flat
                                   size="md"
+                                  append_icon="arrow-right"
                                   round
+                                  inherit_color
                                   @click="scrollToProducts">
                             Explore Collections
                         </IkButton>
@@ -87,7 +89,7 @@
                                      class="product-image" />
                             <IkChip v-if="product.sale"
                                     design="primary"
-                                    size="xs"
+                                    size="sm"
                                     class="sale-badge">
                                 <IkIcon icon="tag"
                                         class="ik-mr-3"
@@ -160,6 +162,8 @@ import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
 import { IkRating } from '@ikol/ui-kit/components/IkRating';
 import { IkBadge } from '@ikol/ui-kit/components/IkBadge';
 import ThemeSwitch from './ThemeSwitch.vue';
+import { IkThemeProvider } from '@ikol/ui-kit/components/IkThemeProvider';
+import { provideTheme } from '@ikol/ui-kit/composables/theme';
 
 interface Product {
     id: number;
@@ -171,6 +175,33 @@ interface Product {
     sale?: boolean;
     rating: number;
 }
+
+provideTheme({
+    colors: {
+        PRIMARY_50: 'f1f3ff',
+        PRIMARY_100: 'e2e7ff',
+        PRIMARY_200: 'c4d0ff',
+        PRIMARY_300: 'a5b9ff',
+        PRIMARY_400: '7f9fff',
+        PRIMARY_500: '5689ff',
+        PRIMARY_600: '0073ff',
+        PRIMARY_700: '0054be',
+        PRIMARY_800: '003a87',
+        PRIMARY_900: '001f50',
+        PRIMARY_950: '001234',
+    },
+    settings: {
+        typography: {
+            letter_spacing: 0.5,
+        },
+        fonts: {
+            default: {
+                family: 'Roboto',
+                weights: { bold: 700, normal: 400, semibold: 600 },
+            },
+        },
+    },
+});
 
 const products = ref<Product[]>([
     {
@@ -295,6 +326,7 @@ const scrollToProducts = () => {
 .hero-wrapper {
     max-width: 1200px;
     margin: 0 auto;
+    color: white;
 }
 
 .hero-container {
@@ -328,13 +360,11 @@ const scrollToProducts = () => {
 
 .hero-title {
     color: var(--content-neutral-white-default);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
     color: var(--content-neutral-white-default);
     opacity: 0.95;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Main Content */
