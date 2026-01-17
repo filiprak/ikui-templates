@@ -6,7 +6,7 @@
                     grow_fixed_grow>
                 <div class="logo">
                     <IkLink to="/">
-                        <span class="logo-text ik-text--display-sm ik-text--bold">Shop</span>
+                        <span class="logo-text ik-text--display-sm ik-text--bold">Xample</span>
                     </IkLink>
                 </div>
                 <IkFlex class="nav-links ik-text--semibold"
@@ -40,7 +40,8 @@
                             everyday
                             needs</p>
                         <IkButton design="primary"
-                                  size="lg"
+                                  size="md"
+                                  round
                                   @click="scrollToProducts">
                             Shop Now
                         </IkButton>
@@ -107,7 +108,7 @@
             <div class="container ik-px-6">
                 <IkFlex class="footer-content"
                         spacing="8">
-                    <p class="footer-text ik-text--sm ik-ma-0">© 2025 Shop. All rights reserved.</p>
+                    <p class="footer-text ik-text--sm ik-ma-0">© 2026 Xample. All rights reserved.</p>
                     <IkFlex class="footer-links ik-text--semibold"
                             spacing="5">
                         <IkLink to="/privacy"
@@ -232,7 +233,6 @@ const scrollToProducts = () => {
 /* Header */
 .header {
     background-color: var(--background-neutral-strong-default);
-    border-bottom: 1px solid var(--border-neutral-light-default);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -264,18 +264,19 @@ const scrollToProducts = () => {
 }
 
 .hero-container {
-    --bg: 160;
+    --bg: 200;
     position: relative;
-    min-height: 500px;
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     max-width: 1200px;
-    background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop');
-    background-color: rgba(from var(--background-primary-solid-default) calc(r - var(--bg)) calc(g - var(--bg)) calc(b - var(--bg)) / 0.5);
+    background: linear-gradient(45deg, rgb(0, 0, 202) 0%, rgb(0, 184, 184) 100%);
+    /* background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop'); */
+    /* background-color: rgba(from var(--background-primary-solid-default) calc(r - var(--bg)) calc(g - var(--bg)) calc(b - var(--bg)) / 0.5); */
     background-size: cover;
-    background-blend-mode: darken;
+    background-blend-mode: hue;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
