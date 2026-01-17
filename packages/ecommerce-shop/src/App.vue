@@ -6,7 +6,7 @@
                     grow_fixed_grow>
                 <div class="logo">
                     <IkLink to="/">
-                        <span class="logo-text">Shop</span>
+                        <span class="logo-text ik-text--display-sm ik-text--bold">Shop</span>
                     </IkLink>
                 </div>
                 <IkFlex class="nav-links"
@@ -33,7 +33,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="container">
-                <h2 class="section-title">Featured Products</h2>
+                <h2 class="section-title ik-text--display-md ik-text--semibold ik-mb-8">Featured Products</h2>
                 <IkGrid spacing_x="8"
                         spacing_y="8">
                     <IkGridItem xxs-12
@@ -42,7 +42,7 @@
                                 md-3
                                 v-for="product in products"
                                 :key="product.id"
-                                class="product-card">
+                                class="product-card ik-radius-2 ik-shadow--xs">
                         <div class="product-image-wrapper">
                             <IkImage :src="product.image"
                                      :alt="product.name"
@@ -60,14 +60,14 @@
                             </IkChip>
                         </div>
                         <div class="product-info">
-                            <h3 class="product-name">{{ product.name }}</h3>
-                            <p class="product-category">{{ product.category }}</p>
+                            <h3 class="product-name ik-text--lg ik-text--semibold ik-mb-1">{{ product.name }}</h3>
+                            <p class="product-category ik-text--sm ik-text--upper ik-mb-3">{{ product.category }}</p>
                             <div class="product-price">
                                 <span v-if="product.originalPrice"
-                                      class="original-price">
+                                      class="original-price ik-text--md ik-text--strike">
                                     ${{ product.originalPrice }}
                                 </span>
-                                <span class="current-price">${{ product.price }}</span>
+                                <span class="current-price ik-text--xl ik-text--semibold">${{ product.price }}</span>
                             </div>
                             <IkButton design="primary"
                                       class="add-to-cart-btn"
@@ -87,7 +87,7 @@
             <div class="container">
                 <IkFlex class="footer-content"
                         spacing="8">
-                    <p class="footer-text">© 2025 Shop. All rights reserved.</p>
+                    <p class="footer-text ik-text--sm ik-ma-0">© 2025 Shop. All rights reserved.</p>
                     <IkFlex class="footer-links"
                             spacing="5">
                         <IkLink to="/privacy"
@@ -199,14 +199,14 @@ const addToCart = (product: Product) => {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #fafafa;
+    background-color: var(--background-neutral-strong-default);
 }
 
 /* Header */
 .header {
-    background: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 16px 0;
+    background-color: var(--background-neutral-white-default);
+    border-bottom: 1px solid var(--border-neutral-regular-default);
+    padding: var(--s-4) 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -215,53 +215,44 @@ const addToCart = (product: Product) => {
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--s-6);
 }
 
 .logo-text {
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0;
-    color: #1a1a1a;
-    letter-spacing: -0.5px;
+    color: var(--content-neutral-strong-default);
 }
 
 .nav-links {
-    font-size: 15px;
+    font-size: var(--text-md);
 }
 
 /* Main Content */
 .main-content {
     flex: 1;
-    padding: 48px 0;
+    padding: var(--s-12) 0;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--s-6);
 }
 
 .section-title {
-    font-size: 32px;
-    font-weight: 600;
-    margin: 0 0 32px 0;
-    color: #1a1a1a;
-    letter-spacing: -0.5px;
+    color: var(--content-neutral-strong-default);
 }
 
 /* Product Card */
 .product-card {
-    background: #ffffff;
-    border-radius: 8px;
+    background-color: var(--background-neutral-white-default);
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--border-neutral-regular-default);
 }
 
 .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-neutral-lg);
 }
 
 .product-image-wrapper {
@@ -269,7 +260,7 @@ const addToCart = (product: Product) => {
     width: 100%;
     aspect-ratio: 1;
     overflow: hidden;
-    background: #f5f5f5;
+    background-color: var(--background-neutral-light-default);
 }
 
 .product-image {
@@ -285,49 +276,38 @@ const addToCart = (product: Product) => {
 
 .sale-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: var(--s-3);
+    right: var(--s-3);
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: var(--s-1);
 }
 
 .product-info {
-    padding: 20px;
+    padding: var(--s-5);
 }
 
 .product-name {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 4px 0;
-    color: #1a1a1a;
+    color: var(--content-neutral-strong-default);
 }
 
 .product-category {
-    font-size: 14px;
-    color: #666;
-    margin: 0 0 12px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    color: var(--content-neutral-regular-default);
 }
 
 .product-price {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
+    gap: var(--s-2);
+    margin-bottom: var(--s-4);
 }
 
 .original-price {
-    font-size: 16px;
-    color: #999;
-    text-decoration: line-through;
+    color: var(--content-neutral-light-default);
 }
 
 .current-price {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1a1a1a;
+    color: var(--content-neutral-strong-default);
 }
 
 .add-to-cart-btn {
@@ -336,33 +316,31 @@ const addToCart = (product: Product) => {
 
 /* Footer */
 .footer {
-    background: #ffffff;
-    border-top: 1px solid #e5e5e5;
-    padding: 32px 0;
-    margin-top: 64px;
+    background-color: var(--background-neutral-white-default);
+    border-top: 1px solid var(--border-neutral-regular-default);
+    padding: var(--s-8) 0;
+    margin-top: var(--s-16);
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--s-6);
 }
 
 .footer-text {
-    font-size: 14px;
-    color: #666;
-    margin: 0;
+    color: var(--content-neutral-regular-default);
 }
 
 .footer-links {
-    font-size: 14px;
+    font-size: var(--text-sm);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
-        gap: 16px;
+        gap: var(--s-4);
     }
 
     .nav-links {
@@ -372,12 +350,12 @@ const addToCart = (product: Product) => {
     }
 
     .section-title {
-        font-size: 24px;
+        font-size: var(--text-display-sm);
     }
 
     .footer-content {
         flex-direction: column;
-        gap: 16px;
+        gap: var(--s-4);
         text-align: center;
     }
 }
