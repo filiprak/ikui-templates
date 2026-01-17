@@ -32,17 +32,19 @@
 
         <!-- Hero Section -->
         <section class="hero-section">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="container">
-                    <h1 class="hero-title ik-text--display-lg ik-text--bold ik-mb-4">Discover Quality Products</h1>
-                    <p class="hero-subtitle ik-text--xl ik-mb-8">Curated collection of premium items for your everyday
-                        needs</p>
-                    <IkButton design="primary"
-                              size="lg"
-                              @click="scrollToProducts">
-                        Shop Now
-                    </IkButton>
+            <div class="hero-wrapper ik-px-6 ik-py-10">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1 class="hero-title ik-text--display-lg ik-text--bold ik-mb-4">Discover Quality Products</h1>
+                        <p class="hero-subtitle ik-text--xl ik-mb-8">Curated collection of premium items for your
+                            everyday
+                            needs</p>
+                        <IkButton design="primary"
+                                  size="lg"
+                                  @click="scrollToProducts">
+                            Shop Now
+                        </IkButton>
+                    </div>
                 </div>
             </div>
         </section>
@@ -254,40 +256,37 @@ const scrollToProducts = () => {
 }
 
 /* Hero Section */
-.hero-section {
+.hero-section {}
+
+.hero-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-container {
+    --bg: 160;
     position: relative;
     min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: 1200px;
     background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop');
-    background-color: rgba(from var(--background-primary-solid-default) r g b / 0.5);
+    background-color: rgba(from var(--background-primary-solid-default) calc(r - var(--bg)) calc(g - var(--bg)) calc(b - var(--bg)) / 0.5);
     background-size: cover;
-    background-blend-mode: soft-light;
+    background-blend-mode: darken;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
-    z-index: 1;
+    border-radius: var(--s-8);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
     width: 100%;
-}
-
-.hero-content .container {
     max-width: 1200px;
-    margin: 0 auto;
     padding: 0 var(--s-6);
     text-align: center;
 }
