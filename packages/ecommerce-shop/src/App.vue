@@ -1,15 +1,15 @@
 <template>
     <div class="ecommerce-shop">
         <!-- Header Navigation -->
-        <header class="header">
-            <IkFlex class="header-content"
+        <header class="header ik-py-4">
+            <IkFlex class="header-content ik-px-6"
                     grow_fixed_grow>
                 <div class="logo">
                     <IkLink to="/">
                         <span class="logo-text ik-text--display-sm ik-text--bold">Shop</span>
                     </IkLink>
                 </div>
-                <IkFlex class="nav-links"
+                <IkFlex class="nav-links ik-text--semibold"
                         align="center"
                         spacing="8">
                     <IkLink to="/"
@@ -31,9 +31,9 @@
         </header>
 
         <!-- Main Content -->
-        <main class="main-content">
-            <div class="container">
-                <h2 class="section-title ik-text--display-md ik-text--semibold ik-mb-8">Featured Products</h2>
+        <main class="main-content ik-py-12">
+            <div class="container ik-px-6">
+                <h2 class="section-title ik-text--display-xs ik-text--semibold ik-mb-8">Featured Products</h2>
                 <IkGrid spacing_x="8"
                         spacing_y="8">
                     <IkGridItem xxs-12
@@ -42,7 +42,7 @@
                                 md-3
                                 v-for="product in products"
                                 :key="product.id"
-                                class="product-card ik-radius-2 ik-shadow--xs">
+                                class="product-card ik-radius-6 ik-shadow--xl">
                         <div class="product-image-wrapper">
                             <IkImage :src="product.image"
                                      :alt="product.name"
@@ -52,17 +52,17 @@
                             <IkChip v-if="product.sale"
                                     design="error"
                                     size="xs"
-                                    class="sale-badge">
+                                    class="sale-badge ik-top-3 ik-right-3">
                                 <IkIcon icon="tag"
                                         class="ik-mr-3"
                                         size_px="12" />
                                 Sale
                             </IkChip>
                         </div>
-                        <div class="product-info">
+                        <div class="product-info ik-pa-7">
                             <h3 class="product-name ik-text--lg ik-text--semibold ik-mb-1">{{ product.name }}</h3>
-                            <p class="product-category ik-text--sm ik-text--upper ik-mb-3">{{ product.category }}</p>
-                            <div class="product-price">
+                            <p class="product-category ik-text--sm ik-text--upper ik-mb-4">{{ product.category }}</p>
+                            <div class="product-price ik-mb-7">
                                 <span v-if="product.originalPrice"
                                       class="original-price ik-text--md ik-text--strike">
                                     ${{ product.originalPrice }}
@@ -72,7 +72,6 @@
                             <IkButton design="primary"
                                       class="add-to-cart-btn"
                                       size="md"
-                                      flat
                                       @click="addToCart(product)">
                                 Add to Cart
                             </IkButton>
@@ -83,8 +82,8 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
+        <footer class="footer ik-py-8 ik-mt-16">
+            <div class="container ik-px-6">
                 <IkFlex class="footer-content"
                         spacing="8">
                     <p class="footer-text ik-text--sm ik-ma-0">© 2025 Shop. All rights reserved.</p>
@@ -206,7 +205,6 @@ const addToCart = (product: Product) => {
 .header {
     background-color: var(--background-neutral-white-default);
     border-bottom: 1px solid var(--border-neutral-regular-default);
-    padding: var(--s-4) 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -215,7 +213,6 @@ const addToCart = (product: Product) => {
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--s-6);
 }
 
 .logo-text {
@@ -229,13 +226,11 @@ const addToCart = (product: Product) => {
 /* Main Content */
 .main-content {
     flex: 1;
-    padding: var(--s-12) 0;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--s-6);
 }
 
 .section-title {
@@ -247,7 +242,6 @@ const addToCart = (product: Product) => {
     background-color: var(--background-neutral-white-default);
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid var(--border-neutral-regular-default);
 }
 
 .product-card:hover {
@@ -276,16 +270,11 @@ const addToCart = (product: Product) => {
 
 .sale-badge {
     position: absolute;
-    top: var(--s-3);
-    right: var(--s-3);
     display: flex;
     align-items: center;
     gap: var(--s-1);
 }
 
-.product-info {
-    padding: var(--s-5);
-}
 
 .product-name {
     color: var(--content-neutral-strong-default);
@@ -299,7 +288,6 @@ const addToCart = (product: Product) => {
     display: flex;
     align-items: center;
     gap: var(--s-2);
-    margin-bottom: var(--s-4);
 }
 
 .original-price {
@@ -318,14 +306,11 @@ const addToCart = (product: Product) => {
 .footer {
     background-color: var(--background-neutral-white-default);
     border-top: 1px solid var(--border-neutral-regular-default);
-    padding: var(--s-8) 0;
-    margin-top: var(--s-16);
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--s-6);
 }
 
 .footer-text {
@@ -340,7 +325,6 @@ const addToCart = (product: Product) => {
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
-        gap: var(--s-4);
     }
 
     .nav-links {
@@ -355,7 +339,6 @@ const addToCart = (product: Product) => {
 
     .footer-content {
         flex-direction: column;
-        gap: var(--s-4);
         text-align: center;
     }
 }
