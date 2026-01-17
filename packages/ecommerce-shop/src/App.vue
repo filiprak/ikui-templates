@@ -23,11 +23,7 @@
                 </IkFlex>
                 <IkFlex justify_end
                         spacing="3">
-                    <IkButton design="primary"
-                              flat
-                              round>
-                        Gift Cards
-                    </IkButton>
+                    <ThemeSwitch />
                     <IkButton design="primary"
                               round>
                         Sign In
@@ -162,6 +158,7 @@ import { IkChip } from '@ikol/ui-kit/components/IkChip';
 import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
 import { IkRating } from '@ikol/ui-kit/components/IkRating';
 import { IkBadge } from '@ikol/ui-kit/components/IkBadge';
+import ThemeSwitch from './ThemeSwitch.vue';
 
 interface Product {
     id: number;
