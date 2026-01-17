@@ -3,17 +3,15 @@
         <!-- Header Navigation -->
         <header class="header">
             <IkFlex class="header-content"
-                    align="center"
-                    justify="space-between">
+                    grow_fixed_grow>
                 <div class="logo">
-                    <IkLink to="/"
-                            plain>
-                        <h1 class="logo-text">Shop</h1>
+                    <IkLink to="/">
+                        <span class="logo-text">Shop</span>
                     </IkLink>
                 </div>
                 <IkFlex class="nav-links"
                         align="center"
-                        spacing_x="24">
+                        spacing="8">
                     <IkLink to="/"
                             plain>Home</IkLink>
                     <IkLink to="/products"
@@ -22,9 +20,12 @@
                             plain>About</IkLink>
                     <IkLink to="/contact"
                             plain>Contact</IkLink>
-                    <IkButton design="default"
+                </IkFlex>
+                <IkFlex justify_end>
+                    <IkButton design="primary"
+                              flat
                               icon="shopping-cart"
-                              plain />
+                              circle />
                 </IkFlex>
             </IkFlex>
         </header>
@@ -70,6 +71,8 @@
                             </div>
                             <IkButton design="primary"
                                       class="add-to-cart-btn"
+                                      size="md"
+                                      flat
                                       @click="addToCart(product)">
                                 Add to Cart
                             </IkButton>
@@ -83,11 +86,10 @@
         <footer class="footer">
             <div class="container">
                 <IkFlex class="footer-content"
-                        align="center"
-                        justify="space-between">
+                        spacing="8">
                     <p class="footer-text">© 2025 Shop. All rights reserved.</p>
                     <IkFlex class="footer-links"
-                            spacing_x="24">
+                            spacing="5">
                         <IkLink to="/privacy"
                                 plain>Privacy</IkLink>
                         <IkLink to="/terms"
