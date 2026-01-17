@@ -7,7 +7,10 @@
                     grow_fixed_grow>
                 <div class="logo">
                     <IkLink to="/">
-                        <span class="logo-text ik-text--display-sm ik-text--bold">Xample</span>
+                        <span class="logo-text ik-text--display-sm ik-text--bold"
+                              :class="{ 'logo-text--dark': theme.is_dark.value }">
+                            Xample
+                        </span>
                     </IkLink>
                 </div>
                 <IkFlex class="nav-links ik-text--semibold"
@@ -160,9 +163,7 @@ import { IkLink } from '@ikol/ui-kit/components/IkLink';
 import { IkChip } from '@ikol/ui-kit/components/IkChip';
 import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
 import { IkRating } from '@ikol/ui-kit/components/IkRating';
-import { IkBadge } from '@ikol/ui-kit/components/IkBadge';
 import ThemeSwitch from './ThemeSwitch.vue';
-import { IkThemeProvider } from '@ikol/ui-kit/components/IkThemeProvider';
 import { provideTheme } from '@ikol/ui-kit/composables/theme';
 
 interface Product {
@@ -176,7 +177,7 @@ interface Product {
     rating: number;
 }
 
-provideTheme({
+const theme = provideTheme({
     colors: {
         PRIMARY_50: 'f1f3ff',
         PRIMARY_100: 'e2e7ff',
@@ -316,6 +317,11 @@ const scrollToProducts = () => {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
+}
+
+.logo-text--dark {
+    background: linear-gradient(45deg, rgb(123, 123, 255) 0%, cyan 100%);
+    -webkit-background-clip: text;
 }
 
 .nav-links {
