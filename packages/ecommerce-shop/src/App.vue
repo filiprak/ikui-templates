@@ -36,7 +36,8 @@
             <div class="hero-content">
                 <div class="container">
                     <h1 class="hero-title ik-text--display-lg ik-text--bold ik-mb-4">Discover Quality Products</h1>
-                    <p class="hero-subtitle ik-text--xl ik-mb-8">Curated collection of premium items for your everyday needs</p>
+                    <p class="hero-subtitle ik-text--xl ik-mb-8">Curated collection of premium items for your everyday
+                        needs</p>
                     <IkButton design="primary"
                               size="lg"
                               @click="scrollToProducts">
@@ -47,7 +48,8 @@
         </section>
 
         <!-- Main Content -->
-        <main class="main-content ik-py-12" id="products">
+        <main class="main-content ik-py-12"
+              id="products">
             <div class="container ik-px-6">
                 <h2 class="section-title ik-text--display-xs ik-text--semibold ik-mb-8">Featured Products</h2>
                 <IkGrid spacing_x="8"
@@ -259,7 +261,9 @@ const scrollToProducts = () => {
     align-items: center;
     justify-content: center;
     background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop');
+    background-color: rgba(from var(--background-primary-solid-default) r g b / 0.5);
     background-size: cover;
+    background-blend-mode: soft-light;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -337,11 +341,13 @@ const scrollToProducts = () => {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: saturate(10%);
 }
 
 .product-card:hover .product-image {
     transform: scale(1.05);
+    filter: none;
 }
 
 .sale-badge {

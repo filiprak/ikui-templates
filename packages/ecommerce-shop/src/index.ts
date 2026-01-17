@@ -22,6 +22,17 @@ createApp(App)
                 PRIMARY_900: '001f50',
                 PRIMARY_950: '001234',
             },
+            settings: {
+                typography: {
+                    letter_spacing: 0.5,
+                },
+                fonts: {
+                    default: {
+                        family: 'Roboto',
+                        weights: { bold: 700, normal: 400, semibold: 600 },
+                    },
+                },
+            },
         });
     })
     .mount('#app')
