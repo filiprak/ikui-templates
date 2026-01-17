@@ -30,8 +30,24 @@
             </IkFlex>
         </header>
 
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <div class="container">
+                    <h1 class="hero-title ik-text--display-lg ik-text--bold ik-mb-4">Discover Quality Products</h1>
+                    <p class="hero-subtitle ik-text--xl ik-mb-8">Curated collection of premium items for your everyday needs</p>
+                    <IkButton design="primary"
+                              size="lg"
+                              @click="scrollToProducts">
+                        Shop Now
+                    </IkButton>
+                </div>
+            </div>
+        </section>
+
         <!-- Main Content -->
-        <main class="main-content ik-py-12">
+        <main class="main-content ik-py-12" id="products">
             <div class="container ik-px-6">
                 <h2 class="section-title ik-text--display-xs ik-text--semibold ik-mb-8">Featured Products</h2>
                 <IkGrid spacing_x="8"
@@ -192,6 +208,13 @@ const addToCart = (product: Product) => {
     console.log('Added to cart:', product.name);
     // Add to cart logic here
 };
+
+const scrollToProducts = () => {
+    const productsSection = document.getElementById('products');
+    if (productsSection) {
+        productsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+};
 </script>
 
 <style scoped>
@@ -226,6 +249,54 @@ const addToCart = (product: Product) => {
 
 .nav-links {
     font-size: var(--text-md);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-content .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--s-6);
+    text-align: center;
+}
+
+.hero-title {
+    color: var(--content-neutral-white-default);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    color: var(--content-neutral-white-default);
+    opacity: 0.95;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Main Content */
