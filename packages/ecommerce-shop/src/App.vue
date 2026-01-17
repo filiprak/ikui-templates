@@ -83,9 +83,9 @@
                             <div class="product-price ik-mb-7">
                                 <span v-if="product.originalPrice"
                                       class="original-price ik-text--md ik-text--strike">
-                                    ${{ product.originalPrice }}
+                                    ${{ product.originalPrice }}.00
                                 </span>
-                                <span class="current-price ik-text--xl ik-text--semibold">${{ product.price }}</span>
+                                <span class="current-price ik-text--xl ik-text--semibold">${{ product.price }}.00</span>
                             </div>
                             <IkButton design="primary"
                                       class="add-to-cart-btn"
