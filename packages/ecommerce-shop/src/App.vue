@@ -1,7 +1,7 @@
 <template>
     <div class="ecommerce-shop">
         <!-- Header Navigation -->
-        <header class="header ik-py-4">
+        <header class="header ik-py-7">
             <IkFlex class="header-content ik-px-6"
                     grow_fixed_grow>
                 <div class="logo">
@@ -50,9 +50,9 @@
                                      lazy
                                      class="product-image" />
                             <IkChip v-if="product.sale"
-                                    design="error"
+                                    design="primary"
                                     size="xs"
-                                    class="sale-badge ik-top-3 ik-right-3">
+                                    class="sale-badge">
                                 <IkIcon icon="tag"
                                         class="ik-mr-3"
                                         size_px="12" />
@@ -72,6 +72,7 @@
                             <IkButton design="primary"
                                       class="add-to-cart-btn"
                                       size="md"
+                                      flat
                                       @click="addToCart(product)">
                                 Add to Cart
                             </IkButton>
@@ -82,12 +83,12 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer ik-py-8 ik-mt-16">
+        <footer class="footer ik-py-10 ik-mt-16">
             <div class="container ik-px-6">
                 <IkFlex class="footer-content"
                         spacing="8">
                     <p class="footer-text ik-text--sm ik-ma-0">© 2025 Shop. All rights reserved.</p>
-                    <IkFlex class="footer-links"
+                    <IkFlex class="footer-links ik-text--semibold"
                             spacing="5">
                         <IkLink to="/privacy"
                                 plain>Privacy</IkLink>
@@ -203,8 +204,8 @@ const addToCart = (product: Product) => {
 
 /* Header */
 .header {
-    background-color: var(--background-neutral-white-default);
-    border-bottom: 1px solid var(--border-neutral-regular-default);
+    background-color: var(--background-neutral-strong-default);
+    border-bottom: 1px solid var(--border-neutral-light-default);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -216,7 +217,11 @@ const addToCart = (product: Product) => {
 }
 
 .logo-text {
-    color: var(--content-neutral-strong-default);
+    background: linear-gradient(45deg, blue 0%, cyan 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
 }
 
 .nav-links {
@@ -269,6 +274,8 @@ const addToCart = (product: Product) => {
 }
 
 .sale-badge {
+    top: var(--s-3);
+    right: var(--s-3);
     position: absolute;
     display: flex;
     align-items: center;
@@ -305,7 +312,7 @@ const addToCart = (product: Product) => {
 /* Footer */
 .footer {
     background-color: var(--background-neutral-white-default);
-    border-top: 1px solid var(--border-neutral-regular-default);
+    border-top: 1px solid var(--border-neutral-light-default);
 }
 
 .footer-content {
