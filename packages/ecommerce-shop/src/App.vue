@@ -21,7 +21,17 @@
                     <IkLink to="/contact"
                             plain>Contact</IkLink>
                 </IkFlex>
-                <IkFlex justify_end>
+                <IkFlex justify_end
+                        spacing="3">
+                    <IkButton design="primary"
+                              flat
+                              round>
+                        Gift Cards
+                    </IkButton>
+                    <IkButton design="primary"
+                              round>
+                        Sign In
+                    </IkButton>
                     <IkButton design="primary"
                               flat
                               icon="shopping-cart"
@@ -40,10 +50,18 @@
                             everyday
                             needs</p>
                         <IkButton design="primary"
+                                  class="ik-mr-5"
                                   size="md"
                                   round
                                   @click="scrollToProducts">
                             Shop Now
+                        </IkButton>
+                        <IkButton design="primary"
+                                  flat
+                                  size="md"
+                                  round
+                                  @click="scrollToProducts">
+                            Explore Collections
                         </IkButton>
                     </div>
                 </div>
@@ -81,8 +99,17 @@
                             </IkChip>
                         </div>
                         <div class="product-info ik-pa-7">
-                            <h3 class="product-name ik-text--lg ik-text--semibold ik-mb-1">{{ product.name }}</h3>
-                            <p class="product-category ik-text--sm ik-text--upper ik-mb-4">{{ product.category }}</p>
+                            <h3 class="product-name ik-text--lg ik-text--semibold ik-mb-2">{{ product.name }}</h3>
+                            <p class="product-category ik-text--sm ik-text--upper ik-mb-5">{{ product.category }}</p>
+                            <IkFlex inline
+                                    spacing="3">
+                                <IkRating :value="product.rating"
+                                          size="sm"
+                                          inline
+                                          class="ik-mb-4"
+                                          readonly />
+                                <span class="ik-mb-3">{{ product.rating }}</span>
+                            </IkFlex>
                             <div class="product-price ik-mb-7">
                                 <span v-if="product.originalPrice"
                                       class="original-price ik-text--md ik-text--strike">
@@ -133,6 +160,8 @@ import { IkImage } from '@ikol/ui-kit/components/IkImage';
 import { IkLink } from '@ikol/ui-kit/components/IkLink';
 import { IkChip } from '@ikol/ui-kit/components/IkChip';
 import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
+import { IkRating } from '@ikol/ui-kit/components/IkRating';
+import { IkBadge } from '@ikol/ui-kit/components/IkBadge';
 
 interface Product {
     id: number;
@@ -142,6 +171,7 @@ interface Product {
     originalPrice?: number;
     image: string;
     sale?: boolean;
+    rating: number;
 }
 
 const products = ref<Product[]>([
@@ -152,14 +182,16 @@ const products = ref<Product[]>([
         price: 129,
         originalPrice: 179,
         image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop',
-        sale: true
+        sale: true,
+        rating: 4.5
     },
     {
         id: 2,
         name: 'Wireless Headphones',
         category: 'Electronics',
         price: 199,
-        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'
+        image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
+        rating: 4.8
     },
     {
         id: 3,
@@ -168,21 +200,24 @@ const products = ref<Product[]>([
         price: 249,
         originalPrice: 299,
         image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop',
-        sale: true
+        sale: true,
+        rating: 4.3
     },
     {
         id: 4,
         name: 'Sunglasses',
         category: 'Accessories',
         price: 89,
-        image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop'
+        image: 'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop',
+        rating: 4.6
     },
     {
         id: 5,
         name: 'Smart Speaker',
         category: 'Electronics',
         price: 149,
-        image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop'
+        image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop',
+        rating: 4.7
     },
     {
         id: 6,
@@ -191,21 +226,24 @@ const products = ref<Product[]>([
         price: 79,
         originalPrice: 99,
         image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
-        sale: true
+        sale: true,
+        rating: 4.4
     },
     {
         id: 7,
         name: 'Coffee Maker',
         category: 'Home',
         price: 159,
-        image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop'
+        image: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400&h=400&fit=crop',
+        rating: 4.9
     },
     {
         id: 8,
         name: 'Desk Lamp',
         category: 'Home',
         price: 69,
-        image: 'https://images.unsplash.com/photo-1621177555452-bedbe4c28879?w=400&h=400&fit=crop'
+        image: 'https://images.unsplash.com/photo-1621177555452-bedbe4c28879?w=400&h=400&fit=crop',
+        rating: 4.2
     }
 ]);
 
@@ -256,8 +294,6 @@ const scrollToProducts = () => {
 }
 
 /* Hero Section */
-.hero-section {}
-
 .hero-wrapper {
     max-width: 1200px;
     margin: 0 auto;
