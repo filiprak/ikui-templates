@@ -4,7 +4,7 @@ import { createIkolUI } from '@ikol/ui-kit';
 
 const ui = createIkolUI({
     config: {
-        ICONS_CDN_URL: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/svgs-full',
+        ICONS_CDN_URL: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0',
     },
 });
 
