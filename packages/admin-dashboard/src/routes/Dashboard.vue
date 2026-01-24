@@ -2,7 +2,7 @@
     <div>
         <IkFlex justify_space>
             <IkTabsNav v-model="tab"
-                       variant="button"
+                       variant="button-background"
                        design="primary"
                        :items="[
                         { id: 'overview', title: 'Overview' },
@@ -29,12 +29,106 @@
                 spacing_x="8">
             <IkGridItem xxs-12
                         md-6
-                        xl-3
-                        v-for="i in 4">
+                        xl-3>
+                <Panel primary>
+                    <template #top>
+                        <IkIcon circle
+                                :size_px="40"
+                                design="primary"
+                                icon="dollar">
+                        </IkIcon>
+                    </template>
+                    <div class="ik-text--light ik-text--md ik-mb-5">Total income</div>
+                    <IkFlex class="ik-text--light ik-text--display-md ik-mb-5"
+                            grow_and_fixed>
+                        <span>$105,684</span>
+                        <IkChip flat
+                                design="success"
+                                size="xs">
+                            <IkIcon icon="chevron-up"
+                                    class="ik-mr-3"></IkIcon>
+                            10,87%
+                        </IkChip>
+                    </IkFlex>
+                    <div class="ik-text--light ik-text--default-light">Compared to last month</div>
+                </Panel>
+            </IkGridItem>
+            <IkGridItem xxs-12
+                        md-6
+                        xl-3>
                 <Panel>
                     <template #top>
-                        <span class="ik-text--bold ik-text--lg">Analytics</span>
+                        <IkIcon circle
+                                :size_px="40"
+                                design="primary"
+                                icon="hand-holding-dollar">
+                        </IkIcon>
                     </template>
+                    <div class="ik-text--light ik-text--md ik-mb-5">Profit</div>
+                    <IkFlex class="ik-text--light ik-text--display-md ik-mb-5"
+                            grow_and_fixed>
+                        <span>$11,478</span>
+                        <IkChip flat
+                                design="success"
+                                size="xs">
+                            <IkIcon icon="chevron-up"
+                                    class="ik-mr-3"></IkIcon>
+                            7,33%
+                        </IkChip>
+                    </IkFlex>
+                    <div class="ik-text--light ik-text--default-light">Compared to last month</div>
+                </Panel>
+            </IkGridItem>
+            <IkGridItem xxs-12
+                        md-6
+                        xl-3>
+                <Panel>
+                    <template #top>
+                        <IkIcon circle
+                                :size_px="40"
+                                design="primary"
+                                icon="money-check-dollar">
+                        </IkIcon>
+                    </template>
+                    <div class="ik-text--light ik-text--md ik-mb-5">Total revenue</div>
+                    <IkFlex class="ik-text--light ik-text--display-md ik-mb-5"
+                            grow_and_fixed>
+                        <span>$11,478</span>
+                        <IkChip flat
+                                design="error"
+                                size="xs">
+                            <IkIcon icon="chevron-down"
+                                    class="ik-mr-3"></IkIcon>
+                            3,01%
+                        </IkChip>
+                    </IkFlex>
+                    <div class="ik-text--light ik-text--default-light">Compared to last month</div>
+                </Panel>
+            </IkGridItem>
+            <IkGridItem xxs-12
+                        md-6
+                        xl-3>
+                <Panel>
+                    <template #top>
+                        <IkIcon circle
+                                :size_px="40"
+                                design="primary"
+                                icon="filter-circle-dollar">
+                        </IkIcon>
+                    </template>
+                    <div class="ik-text--light ik-text--md ik-mb-5">Total convertion</div>
+                    <IkFlex class="ik-text--light ik-text--display-md ik-mb-5"
+                            grow_and_fixed>
+                        <span>5,09%</span>
+                        <IkChip flat
+                                design="success"
+                                size="xs">
+                            <IkIcon icon="chevron-up"
+                                    class="ik-mr-3"></IkIcon>
+                            23,01%
+                        </IkChip>
+                    </IkFlex>
+                    <div class="ik-text--light ik-text--default-light">Compared to last month</div>
                 </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
@@ -45,6 +139,7 @@
                     </template>
                     <template #top-end>
                         <IkSelect v-model="analytics"
+                                  variant="filled"
                                   value_key="v"
                                   text_key="t"
                                   :items="[{ v: 1, t: 'Estimated Sales' }, { v: 2, t: 'Activity' }]">
@@ -61,7 +156,7 @@
                         xl-5>
                 <Panel>
                     <template #top>
-                        <span class="ik-text--bold ik-text--lg">Analytics</span>
+                        <span class="ik-text--bold ik-text--lg">Session by country</span>
                     </template>
                 </Panel>
             </IkGridItem>
@@ -85,6 +180,8 @@ import Chart from '../utils/Chart.vue';
 import { useTheme } from '@ikol/ui-kit/composables';
 import Panel from '../utils/Panel.vue';
 import { IkSelect } from '@ikol/ui-kit/components/IkSelect';
+import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
+import { IkChip } from '@ikol/ui-kit/components/IkChip';
 
 const tab = ref('overview');
 const analytics = ref(1);

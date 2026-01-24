@@ -123,11 +123,11 @@ const theme = provideTheme({
     },
     settings: {
         typography: {
-            letter_spacing: 0.5,
+            letter_spacing: 0,
         },
         fonts: {
             default: {
-                family: 'Roboto',
+                family: 'Poppins',
                 weights: { bold: 700, normal: 400, semibold: 600 },
             },
         },
@@ -143,7 +143,7 @@ const mini = ref(true);
 }
 
 :global(.ik-theme--dark) {
-    --bg-diff: -40;
+    --bg-diff: -50;
 }
 
 :global(body) {
