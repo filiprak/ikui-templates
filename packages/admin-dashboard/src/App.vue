@@ -41,6 +41,7 @@
                 </div>
             </template>
             <IkNavigationItem link="#"
+                              active
                               icon="home"
                               circle_icon
                               hide_label>
