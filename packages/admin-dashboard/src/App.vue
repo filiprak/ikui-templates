@@ -1,6 +1,7 @@
 <template>
     <IkApp class="admin-dashboard">
-        <IkAppBar :height="72">
+        <IkAppBar class="topbar"
+                  :height="72">
             <IkFlex grow_and_fixed>
                 <span class="ik-text--xl">Dashboard</span>
                 <IkFlex spacing="5">
@@ -137,9 +138,24 @@ const nav = ref(true);
 const mini = ref(true);
 </script>
 <style lang="css" scoped>
-:global(body, html) {
-    --darken: 0;
-    /* background-color: rgb(from var(--background-neutral-regular-default) calc(r + var(--darken)) calc(g + var(--darken)) calc(b + var(--darken))); */
+:global(.ik-theme--light) {
+    --bg-diff: 16;
+}
+
+:global(.ik-theme--dark) {
+    --bg-diff: -40;
+}
+
+:global(body) {
+    --bg-color: rgb(from var(--background-neutral-regular-default) calc(r + var(--bg-diff)) calc(g + var(--bg-diff)) calc(b + var(--bg-diff)));
+}
+
+:global(body) {
     min-height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.ik-theme--dark .topbar {
+    background-color: var(--bg-color);
 }
 </style>
