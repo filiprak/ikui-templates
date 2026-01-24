@@ -71,7 +71,7 @@ const buildOption = () => ({
         boundaryGap: false,
         axisLine: { show: false },
         axisTick: { show: false },
-        axisLabel: { color: themeVars.value.text },
+        axisLabel: { color: themeVars.value.text, formatter: 'Q{value}' },
         data: props.series[0]?.map((_, i) => i + 1) || [],
     },
     yAxis: {
@@ -81,7 +81,8 @@ const buildOption = () => ({
         splitLine: {
             lineStyle: { color: themeVars.value.grid },
         },
-        axisLabel: { color: themeVars.value.text },
+        axisLabel: { color: themeVars.value.text, formatter: '${value}M' },
+
     },
     series: props.series.map((values) => ({
         type: 'line',

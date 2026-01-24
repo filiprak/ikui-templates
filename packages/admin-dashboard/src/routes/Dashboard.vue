@@ -31,30 +31,46 @@
                         md-6
                         xl-3
                         v-for="i in 4">
-                <div class="panel ik-radius-7">
-
-                </div>
+                <Panel>
+                    <template #top>
+                        <span class="ik-text--bold ik-text--lg">Analytics</span>
+                    </template>
+                </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
                         xl-7>
-                <div class="panel ik-radius-7">
+                <Panel>
+                    <template #top>
+                        <span class="ik-text--bold ik-text--lg">Analytics</span>
+                    </template>
+                    <template #top-end>
+                        <IkSelect v-model="analytics"
+                                  value_key="v"
+                                  text_key="t"
+                                  :items="[{ v: 1, t: 'Estimated Sales' }, { v: 2, t: 'Activity' }]">
+                        </IkSelect>
+                    </template>
                     <Chart :series="[
-                        [10, 22, 18, 30, 26],
-                        [8, 16, 14, 24, 20]
+                        [2.5, 4.2, 3.1, 7.4, 5.0, 8.2, 6.1, 4.8, 9.1, 7.0],
+                        [1.2, 3.5, 2.8, 4.1, 3.9, 5.5, 4.2, 6.0, 5.1, 8.3]
                     ]"
-                           :colors="['#6366f1', '#22c55e']" />
-                </div>
+                           :colors="['cyan', 'magenta']" />
+                </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
                         xl-5>
-                <div class="panel ik-radius-7">
-
-                </div>
+                <Panel>
+                    <template #top>
+                        <span class="ik-text--bold ik-text--lg">Analytics</span>
+                    </template>
+                </Panel>
             </IkGridItem>
             <IkGridItem xxs-12>
-                <div class="panel ik-radius-7">
-
-                </div>
+                <Panel>
+                    <template #top>
+                        <span class="ik-text--bold ik-text--lg">Analytics</span>
+                    </template>
+                </Panel>
             </IkGridItem>
         </IkGrid>
     </div>
@@ -66,14 +82,12 @@ import { IkGrid, IkGridItem } from '@ikol/ui-kit/components/IkGrid';
 import { IkTabsNav } from '@ikol/ui-kit/components/IkTabs';
 import { ref } from 'vue';
 import Chart from '../utils/Chart.vue';
+import { useTheme } from '@ikol/ui-kit/composables';
+import Panel from '../utils/Panel.vue';
+import { IkSelect } from '@ikol/ui-kit/components/IkSelect';
 
 const tab = ref('overview');
+const analytics = ref(1);
+const theme = useTheme();
 </script>
-<style lang="css" scoped>
-.panel {
-    background-color: var(--background-neutral-strong-default);
-    border: 1px solid var(--border-neutral-light-default);
-    min-height: 250px;
-    padding: var(--s-8);
-}
-</style>
+<style lang="css" scoped></style>
