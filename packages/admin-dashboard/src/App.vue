@@ -16,12 +16,12 @@
                               flat
                               size_px="32">
                     </IkButton>
-                    <IkButton icon="home"
+                    <IkButton icon="bell"
                               circle
                               flat
                               size_px="32">
                     </IkButton>
-                    <IkButton icon="bell"
+                    <IkButton icon="chevron-down"
                               circle
                               flat
                               size_px="32">
@@ -32,31 +32,34 @@
         <IkNavigation v-model:open="nav"
                       v-model:mini="mini">
             <template #top>
-                <div class="ik-pa-7">
+                <div class="ik-pa-7 ik-pb-10">
                     <div
                          style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; font-weight: bold;">
                         JD
                     </div>
                 </div>
             </template>
-            <IkNavigationItem circle
-                              link="#"
+            <IkNavigationItem link="#"
                               icon="home"
+                              circle_icon
                               hide_label>
                 Dashboard
             </IkNavigationItem>
             <IkNavigationItem link="#"
                               icon="folder"
+                              circle_icon
                               hide_label>
                 Projects
             </IkNavigationItem>
             <IkNavigationItem link="#"
                               icon="users"
+                              circle_icon
                               hide_label>
                 Team
             </IkNavigationItem>
             <IkNavigationItem link="#"
                               icon="cog"
+                              circle_icon
                               hide_label>
                 Settings
             </IkNavigationItem>
@@ -85,7 +88,7 @@ import { IkLink } from '@ikol/ui-kit/components/IkLink';
 import { IkChip } from '@ikol/ui-kit/components/IkChip';
 import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
 import { IkRating } from '@ikol/ui-kit/components/IkRating';
-import ThemeSwitch from './ThemeSwitch.vue';
+import ThemeSwitch from './utils/ThemeSwitch.vue';
 import { provideTheme } from '@ikol/ui-kit/composables/theme';
 import { IkApp, IkAppBar, IkAppContent } from '@ikol/ui-kit/components/IkApp';
 import { IkNavigation, IkNavigationItem } from '@ikol/ui-kit/components/IkNavigation';
@@ -94,17 +97,17 @@ import { IkInput } from '@ikol/ui-kit/components/IkInput';
 
 const theme = provideTheme({
     colors: {
-        PRIMARY_50: 'f1f3ff',
-        PRIMARY_100: 'e2e7ff',
-        PRIMARY_200: 'c4d0ff',
-        PRIMARY_300: 'a5b9ff',
-        PRIMARY_400: '7f9fff',
-        PRIMARY_500: '5689ff',
-        PRIMARY_600: '0073ff',
-        PRIMARY_700: '0054be',
-        PRIMARY_800: '003a87',
-        PRIMARY_900: '001f50',
-        PRIMARY_950: '001234',
+        // PRIMARY_50: 'f1f3ff',
+        // PRIMARY_100: 'e2e7ff',
+        // PRIMARY_200: 'c4d0ff',
+        // PRIMARY_300: 'a5b9ff',
+        // PRIMARY_400: '7f9fff',
+        // PRIMARY_500: '5689ff',
+        // PRIMARY_600: '0073ff',
+        // PRIMARY_700: '0054be',
+        // PRIMARY_800: '003a87',
+        // PRIMARY_900: '001f50',
+        // PRIMARY_950: '001234',
     },
     settings: {
         typography: {
@@ -122,7 +125,3 @@ const theme = provideTheme({
 const nav = ref(true);
 const mini = ref(true);
 </script>
-
-<style scoped>
-.admin-dashboard {}
-</style>
