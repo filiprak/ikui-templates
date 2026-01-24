@@ -123,11 +123,11 @@ const theme = provideTheme({
     },
     settings: {
         typography: {
-            letter_spacing: 0,
+            letter_spacing: 0.2,
         },
         fonts: {
             default: {
-                family: 'Poppins',
+                family: 'Inter',
                 weights: { bold: 700, normal: 400, semibold: 600 },
             },
         },
