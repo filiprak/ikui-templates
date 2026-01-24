@@ -186,7 +186,7 @@ const mini = ref(true);
 </script>
 <style lang="css" scoped>
 :global(.ik-theme--light) {
-    --bg-diff: 16;
+    --bg-diff: 0;
 }
 
 :global(.ik-theme--dark) {
