@@ -1,7 +1,33 @@
 <template>
     <IkApp class="admin-dashboard">
-        <IkAppBar>
-            Dashboard
+        <IkAppBar :height="72">
+            <IkFlex grow_and_fixed>
+                <span class="ik-text--xl">Dashboard</span>
+                <IkFlex spacing="5">
+                    <IkInput placeholder="Type here to start searching..."
+                             style="width: 400px"
+                             prepend_icon="search"
+                             append_icon="arrow-right"
+                             variant="filled">
+                    </IkInput>
+                    <ThemeSwitch></ThemeSwitch>
+                    <IkButton icon="question"
+                              circle
+                              flat
+                              size_px="32">
+                    </IkButton>
+                    <IkButton icon="home"
+                              circle
+                              flat
+                              size_px="32">
+                    </IkButton>
+                    <IkButton icon="bell"
+                              circle
+                              flat
+                              size_px="32">
+                    </IkButton>
+                </IkFlex>
+            </IkFlex>
         </IkAppBar>
         <IkNavigation v-model:open="nav"
                       v-model:mini="mini">
@@ -63,6 +89,8 @@ import ThemeSwitch from './ThemeSwitch.vue';
 import { provideTheme } from '@ikol/ui-kit/composables/theme';
 import { IkApp, IkAppBar, IkAppContent } from '@ikol/ui-kit/components/IkApp';
 import { IkNavigation, IkNavigationItem } from '@ikol/ui-kit/components/IkNavigation';
+import { IkButtonGroup } from '@ikol/ui-kit/components/IkButtonGroup';
+import { IkInput } from '@ikol/ui-kit/components/IkInput';
 
 const theme = provideTheme({
     colors: {
