@@ -149,7 +149,10 @@
                         [2.5, 4.2, 3.1, 7.4, 5.0, 8.2, 6.1, 4.8, 9.1, 7.0],
                         [1.2, 3.5, 2.8, 4.1, 3.9, 5.5, 4.2, 6.0, 5.1, 8.3]
                     ]"
-                           :colors="['#' + theme.colors.value.border_primary_light_default, 'magenta']" />
+                           :colors="[
+                            '#' + theme.colors.value.background_primary_solid_default,
+                            '#' + theme.colors.value.background_secondary_solid_default
+                        ]" />
                 </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
@@ -370,7 +373,7 @@ const transactions = [
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--background-primary-solid-default) 50%, magenta 120%);
+    background: linear-gradient(135deg, var(--background-primary-solid-default) 20%, var(--background-secondary-solid-default) 120%);
     display: flex;
     align-items: center;
     justify-content: center;
