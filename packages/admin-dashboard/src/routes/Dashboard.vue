@@ -224,7 +224,8 @@
                                 <IkChip size="xs"
                                         flat
                                         :design="i.statusType">
-                                    <IkIcon :icon="i.statusIcon" class="ik-mr-3"></IkIcon>
+                                    <IkIcon :icon="i.statusIcon"
+                                            class="ik-mr-3"></IkIcon>
                                     {{ i.status }}
                                 </IkChip>
                             </div>
@@ -269,6 +270,7 @@ import { IkImage } from '@ikol/ui-kit/components/IkImage';
 import { IkProgressBar } from '@ikol/ui-kit/components/IkProgressBar';
 import Chart from '../utils/Chart.vue';
 import Panel from '../utils/Panel.vue';
+import type { IkUIDesignColor } from '@ikol/ui-kit/types';
 
 const tab = ref('overview');
 const analytics = ref(1);
@@ -303,7 +305,7 @@ const transactions = [
         amount: "$30,021.23",
         date: "Dec 13, 2023",
         status: "Processing",
-        statusType: "accent",
+        statusType: "accent" as IkUIDesignColor,
         statusIcon: "clock-rotate-left",
         executedBy: {
             name: "Olivia Rhye",
@@ -319,7 +321,7 @@ const transactions = [
         amount: "$10,045.00",
         date: "Dec 13, 2023",
         status: "Success",
-        statusType: "success",
+        statusType: "success" as IkUIDesignColor,
         statusIcon: "check",
         executedBy: {
             name: "Phoenix Baker",
@@ -335,7 +337,7 @@ const transactions = [
         amount: "$40,132.16",
         date: "Dec 13, 2023",
         status: "Success",
-        statusType: "success",
+        statusType: "success" as IkUIDesignColor,
         statusIcon: "check",
         executedBy: {
             name: "Lana Steiner",
@@ -351,7 +353,7 @@ const transactions = [
         amount: "$22,665.12",
         date: "Dec 28, 2023",
         status: "Declined",
-        statusType: "error",
+        statusType: "error" as IkUIDesignColor,
         statusIcon: "times",
         executedBy: {
             name: "Demi Wilkinson",
