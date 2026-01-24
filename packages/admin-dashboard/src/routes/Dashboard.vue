@@ -149,7 +149,7 @@
                         [2.5, 4.2, 3.1, 7.4, 5.0, 8.2, 6.1, 4.8, 9.1, 7.0],
                         [1.2, 3.5, 2.8, 4.1, 3.9, 5.5, 4.2, 6.0, 5.1, 8.3]
                     ]"
-                           :colors="['cyan', 'magenta']" />
+                           :colors="['#' + theme.colors.value.border_primary_light_default, 'magenta']" />
                 </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
@@ -271,7 +271,9 @@ import { IkProgressBar } from '@ikol/ui-kit/components/IkProgressBar';
 import Chart from '../utils/Chart.vue';
 import Panel from '../utils/Panel.vue';
 import type { IkUIDesignColor } from '@ikol/ui-kit/types';
+import { useTheme } from '@ikol/ui-kit/composables/theme';
 
+const theme = useTheme();
 const tab = ref('overview');
 const analytics = ref(1);
 const countries = [
@@ -368,7 +370,7 @@ const transactions = [
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, cyan 0%, magenta 100%);
+    background: linear-gradient(135deg, var(--background-primary-solid-default) 50%, magenta 120%);
     display: flex;
     align-items: center;
     justify-content: center;
