@@ -24,16 +24,50 @@
                 </IkButton>
             </IkFlex>
         </IkFlex>
-        <div>
+        <IkGrid class="ik-mt-8"
+                spacing_y="8"
+                spacing_x="8">
+            <IkGridItem xxs-12
+                        md-6
+                        xl-3
+                        v-for="i in 4">
+                <div class="panel ik-radius-7">
 
-        </div>
+                </div>
+            </IkGridItem>
+            <IkGridItem xxs-12
+                        xl-7>
+                <div class="panel ik-radius-7">
+
+                </div>
+            </IkGridItem>
+            <IkGridItem xxs-12
+                        xl-5>
+                <div class="panel ik-radius-7">
+
+                </div>
+            </IkGridItem>
+            <IkGridItem xxs-12>
+                <div class="panel ik-radius-7">
+
+                </div>
+            </IkGridItem>
+        </IkGrid>
     </div>
 </template>
 <script setup lang="ts">
 import { IkButton } from '@ikol/ui-kit/components/IkButton';
 import { IkFlex } from '@ikol/ui-kit/components/IkFlex';
+import { IkGrid, IkGridItem } from '@ikol/ui-kit/components/IkGrid';
 import { IkTabsNav } from '@ikol/ui-kit/components/IkTabs';
 import { ref } from 'vue';
 
 const tab = ref('overview');
 </script>
+<style lang="css" scoped>
+.panel {
+    min-height: 250px;
+    background-color: var(--background-neutral-regular-default);
+    border: 1px solid var(--border-neutral-regular-default);
+}
+</style>
