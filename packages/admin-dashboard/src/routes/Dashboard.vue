@@ -38,8 +38,8 @@
                                 icon="dollar">
                         </IkIcon>
                     </template>
-                    <div class="ik-text--light ik-text--md ik-mb-5">Total income</div>
-                    <IkFlex class="ik-text--light ik-text--display-md ik-mb-5"
+                    <div class="ik-text--normal ik-text--md ik-mb-5">Total income</div>
+                    <IkFlex class="ik-text--normal ik-text--display-md ik-mb-5"
                             grow_and_fixed>
                         <span>$105,684</span>
                         <IkChip flat
@@ -50,7 +50,7 @@
                             10,87%
                         </IkChip>
                     </IkFlex>
-                    <div class="ik-text--light ik-text--default-light">Compared to last month</div>
+                    <div class="ik-text--normal ik-text--default-light">Compared to last month</div>
                 </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
@@ -64,8 +64,8 @@
                                 icon="hand-holding-dollar">
                         </IkIcon>
                     </template>
-                    <div class="ik-text--light ik-text--md ik-mb-5">Profit</div>
-                    <IkFlex class="ik-text--light ik-text--display-md ik-mb-5"
+                    <div class="ik-text--normal ik-text--md ik-mb-5">Profit</div>
+                    <IkFlex class="ik-text--normal ik-text--display-md ik-mb-5"
                             grow_and_fixed>
                         <span>$11,478</span>
                         <IkChip flat
@@ -76,7 +76,7 @@
                             7,33%
                         </IkChip>
                     </IkFlex>
-                    <div class="ik-text--light ik-text--default-light">Compared to last month</div>
+                    <div class="ik-text--normal ik-text--default-light">Compared to last month</div>
                 </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
@@ -90,8 +90,8 @@
                                 icon="money-check-dollar">
                         </IkIcon>
                     </template>
-                    <div class="ik-text--light ik-text--md ik-mb-5">Total revenue</div>
-                    <IkFlex class="ik-text--light ik-text--display-md ik-mb-5"
+                    <div class="ik-text--normal ik-text--md ik-mb-5">Total revenue</div>
+                    <IkFlex class="ik-text--normal ik-text--display-md ik-mb-5"
                             grow_and_fixed>
                         <span>$11,478</span>
                         <IkChip flat
@@ -102,7 +102,7 @@
                             3,01%
                         </IkChip>
                     </IkFlex>
-                    <div class="ik-text--light ik-text--default-light">Compared to last month</div>
+                    <div class="ik-text--normal ik-text--default-light">Compared to last month</div>
                 </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
@@ -116,8 +116,8 @@
                                 icon="filter-circle-dollar">
                         </IkIcon>
                     </template>
-                    <div class="ik-text--light ik-text--md ik-mb-5">Total convertion</div>
-                    <IkFlex class="ik-text--light ik-text--display-md ik-mb-5"
+                    <div class="ik-text--normal ik-text--md ik-mb-5">Total convertion</div>
+                    <IkFlex class="ik-text--normal ik-text--display-md ik-mb-5"
                             grow_and_fixed>
                         <span>5,09%</span>
                         <IkChip flat
@@ -128,7 +128,7 @@
                             23,01%
                         </IkChip>
                     </IkFlex>
-                    <div class="ik-text--light ik-text--default-light">Compared to last month</div>
+                    <div class="ik-text--normal ik-text--default-light">Compared to last month</div>
                 </Panel>
             </IkGridItem>
             <IkGridItem xxs-12
@@ -158,6 +158,21 @@
                     <template #top>
                         <span class="ik-text--bold ik-text--lg">Session by country</span>
                     </template>
+                    <IkListItem class="ik-pa-0 ik-pb-9"
+                                v-for="i in countries">
+                        <template #prepend>
+                            <IkImage :src="`https://flagcdn.com/${i.icon}.svg`"
+                                     round
+                                     cover
+                                     :size="32">
+                            </IkImage>
+                        </template>
+                        <span class="ik-text--normal">{{ i.title }}</span>
+                        <IkProgressBar :percentage="i.percentage"
+                                       design="primary"
+                                       :height="12">
+                        </IkProgressBar>
+                    </IkListItem>
                 </Panel>
             </IkGridItem>
             <IkGridItem xxs-12>
@@ -182,9 +197,33 @@ import Panel from '../utils/Panel.vue';
 import { IkSelect } from '@ikol/ui-kit/components/IkSelect';
 import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
 import { IkChip } from '@ikol/ui-kit/components/IkChip';
+import { IkListItem } from '@ikol/ui-kit/components/IkList';
+import { IkImage } from '@ikol/ui-kit/components/IkImage';
+import { IkProgressBar } from '@ikol/ui-kit/components/IkProgressBar';
 
 const tab = ref('overview');
 const analytics = ref(1);
-const theme = useTheme();
+const countries = [
+    {
+        title: 'United States',
+        percentage: 87,
+        icon: 'us',
+    },
+    {
+        title: 'Japan',
+        percentage: 67,
+        icon: 'jp',
+    },
+    {
+        title: 'China',
+        percentage: 56,
+        icon: 'cn',
+    },
+    {
+        title: 'Canada',
+        percentage: 45,
+        icon: 'ca',
+    },
+];
 </script>
 <style lang="css" scoped></style>
