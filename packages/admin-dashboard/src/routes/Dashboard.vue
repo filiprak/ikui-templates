@@ -71,8 +71,9 @@ const tab = ref('overview');
 </script>
 <style lang="css" scoped>
 .panel {
+    --darken: 0;
     min-height: 250px;
-    background-color: var(--background-neutral-regular-default);
+    background-color: rgb(from var(--background-neutral-regular-default) calc(r + var(--darken)) calc(g + var(--darken)) calc(b + var(--darken)));
     border: 1px solid var(--border-neutral-regular-default);
 }
 </style>

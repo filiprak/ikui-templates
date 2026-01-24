@@ -108,6 +108,17 @@ const theme = provideTheme({
         // PRIMARY_800: '003a87',
         // PRIMARY_900: '001f50',
         // PRIMARY_950: '001234',
+        // NEUTRAL_50: 'f1f3ff',
+        // NEUTRAL_100: 'e2e7ff',
+        // NEUTRAL_200: 'c4d0ff',
+        // NEUTRAL_300: 'a5b9ff',
+        // NEUTRAL_400: '7f9fff',
+        // NEUTRAL_500: '5689ff',
+        // NEUTRAL_600: '0073ff',
+        // NEUTRAL_700: '0054be',
+        // NEUTRAL_800: '003a87',
+        // NEUTRAL_900: '001f50',
+        // NEUTRAL_950: '001234',
     },
     settings: {
         typography: {
@@ -125,3 +136,10 @@ const theme = provideTheme({
 const nav = ref(true);
 const mini = ref(true);
 </script>
+<style lang="css" scoped>
+:global(body, html) {
+    --darken: 0;
+    /* background-color: rgb(from var(--background-neutral-regular-default) calc(r + var(--darken)) calc(g + var(--darken)) calc(b + var(--darken))); */
+    min-height: 100vh;
+}
+</style>
