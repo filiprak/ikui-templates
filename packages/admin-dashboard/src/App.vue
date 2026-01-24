@@ -98,30 +98,7 @@ import { IkButtonGroup } from '@ikol/ui-kit/components/IkButtonGroup';
 import { IkInput } from '@ikol/ui-kit/components/IkInput';
 
 const theme = provideTheme({
-    colors: {
-        // PRIMARY_50: 'f1f3ff',
-        // PRIMARY_100: 'e2e7ff',
-        // PRIMARY_200: 'c4d0ff',
-        // PRIMARY_300: 'a5b9ff',
-        // PRIMARY_400: '7f9fff',
-        // PRIMARY_500: '5689ff',
-        // PRIMARY_600: '0073ff',
-        // PRIMARY_700: '0054be',
-        // PRIMARY_800: '003a87',
-        // PRIMARY_900: '001f50',
-        // PRIMARY_950: '001234',
-        // NEUTRAL_50: 'f1f3ff',
-        // NEUTRAL_100: 'e2e7ff',
-        // NEUTRAL_200: 'c4d0ff',
-        // NEUTRAL_300: 'a5b9ff',
-        // NEUTRAL_400: '7f9fff',
-        // NEUTRAL_500: '5689ff',
-        // NEUTRAL_600: '0073ff',
-        // NEUTRAL_700: '0054be',
-        // NEUTRAL_800: '003a87',
-        // NEUTRAL_900: '001f50',
-        // NEUTRAL_950: '001234',
-    },
+    colors: {},
     settings: {
         typography: {
             letter_spacing: 0.2,
