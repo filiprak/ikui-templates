@@ -15,7 +15,7 @@ const router = createRouter({
 const ui = createIkolUI({
     router,
     config: {
-        ICONS_CDN_URL: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0',
+        ICONS_CDN_URL: 'https://icons.ikui-cdn.workers.dev/fa/7.1.0',
     },
 });
 
