@@ -1,5 +1,5 @@
 <template>
-    <div class="panel ik-radius-8"
+    <div class="panel ik-radius-8 ik-shadow--xl"
          :class="{ 'primary': primary }">
         <IkFlex class="ik-mb-8"
                 spacing="4"
@@ -36,7 +36,6 @@ const props = defineProps<{
 <style scoped>
 .panel {
     background-color: var(--background-neutral-strong-default);
-    border: 1px solid var(--border-neutral-light-default);
     min-height: 100px;
     padding: var(--s-8);
 }

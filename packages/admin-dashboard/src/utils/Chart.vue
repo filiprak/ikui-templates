@@ -30,29 +30,25 @@ let resizeObserver = null
 const theme = useTheme() // expected to expose `isDark`
 
 const themeVars = computed(() => {
-    if (theme.is_dark.value) {
-        return {
-            text: '#d1d5db',
-            grid: '#374151',
-            tooltipBg: '#111827',
-        }
-    }
-
     return {
-        text: '#6b7280',
-        grid: '#e5e7eb',
-        tooltipBg: '#ffffff',
+        text: '#' + theme.colors.value.content_neutral_strong_default,
+        grid: '#' + theme.colors.value.border_neutral_regular_default,
+        tooltipBg: '#' + theme.colors.value.background_neutral_strong_default,
     }
 })
+
+function formatQ (v) {
+    return `${(v - 1) % 4 + 1}`;
+}
 
 const buildOption = () => ({
     color: props.colors,
     backgroundColor: 'transparent',
     grid: {
         top: 20,
-        left: 20,
+        left: 10,
         right: 20,
-        bottom: 20,
+        bottom: 10,
         containLabel: true,
     },
     tooltip: {
@@ -61,18 +57,44 @@ const buildOption = () => ({
         borderWidth: 0,
         textStyle: {
             color: themeVars.value.text,
+            fontSize: 14,
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
         },
+        formatter: (params) => {
+            const name = `<div style="padding-bottom: 5px; font-weight: 600">Quarter ${formatQ(params[0].axisValue)}</div>`;
+            return [
+                name,
+                ...params.map(p => {
+                    return `<div>${p.marker} $${p.value.toFixed(2)}M</div>`;
+                })
+            ].join('');
+        },
+        padding: [12, 14],
         axisPointer: {
-            type: 'line',
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
         },
+        extraCssText: `
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+        `,
     },
     xAxis: {
         type: 'category',
         boundaryGap: false,
         axisLine: { show: false },
         axisTick: { show: false },
-        axisLabel: { color: themeVars.value.text, formatter: 'Q{value}' },
+        axisLabel: { color: themeVars.value.text, formatter: v => `Q${formatQ(v)}` },
         data: props.series[0]?.map((_, i) => i + 1) || [],
+        axisPointer: {
+            label: {
+                backgroundColor: '#' + theme.colors.value.background_primary_solid_default,
+                color: '#' + theme.colors.value.content_neutral_strong_on_primary,
+                formatter: p => `Q${formatQ(p.value)}`
+            }
+        },
     },
     yAxis: {
         type: 'value',
@@ -82,6 +104,13 @@ const buildOption = () => ({
             lineStyle: { color: themeVars.value.grid },
         },
         axisLabel: { color: themeVars.value.text, formatter: '${value}M' },
+        axisPointer: {
+            label: {
+                backgroundColor: '#' + theme.colors.value.background_primary_solid_default,
+                color: '#' + theme.colors.value.content_neutral_strong_on_primary,
+                formatter: p => `$${p.value.toFixed(2)}M`
+            }
+        },
 
     },
     series: props.series.map((values) => ({
@@ -96,7 +125,7 @@ const buildOption = () => ({
             focus: 'series',
         },
         areaStyle: {
-            opacity: 0.1,
+            opacity: 0.2,
         },
     })),
 })
