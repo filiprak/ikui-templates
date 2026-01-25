@@ -48,16 +48,49 @@
                 Dashboard
             </IkNavigationItem>
             <IkNavigationItem link="#"
-                              icon="folder"
+                              icon="chart-line"
                               circle_icon
                               hide_label>
-                Projects
+                Markets
             </IkNavigationItem>
             <IkNavigationItem link="#"
-                              icon="users"
+                              icon="wave-square"
                               circle_icon
                               hide_label>
-                Team
+                Technical Indicators
+            </IkNavigationItem>
+            <IkNavigationItem link="#"
+                              icon="arrow-right-arrow-left"
+                              circle_icon
+                              hide_label>
+                Trade
+            </IkNavigationItem>
+            <IkNavigationItem link="#"
+                              icon="book"
+                              circle_icon
+                              hide_label>
+                Orders
+            </IkNavigationItem>
+            <IkNavigationItem link="#"
+                              icon="robot"
+                              circle_icon
+                              hide_label>
+                Trading bots
+            </IkNavigationItem>
+            <div class="ik-px-7 ik-pb-7">
+                <div style="border-bottom: 1px solid var(--alpha-white-10)"></div>
+            </div>
+            <IkNavigationItem link="#"
+                              icon="wallet"
+                              circle_icon
+                              hide_label>
+                Balance
+            </IkNavigationItem>
+            <IkNavigationItem link="#"
+                              icon="shield-halved"
+                              circle_icon
+                              hide_label>
+                Security
             </IkNavigationItem>
             <IkNavigationItem link="#"
                               icon="cog"
@@ -66,9 +99,14 @@
                 Settings
             </IkNavigationItem>
             <template #bottom>
+                <IkNavigationItem icon="cube"
+                                  hide_label>
+                    Upgrade plan
+                </IkNavigationItem>
                 <IkNavigationItem @click="mini = !mini"
                                   :icon="mini ? 'chevron-right' : 'chevron-left'"
                                   hide_label>
+                    Close
                 </IkNavigationItem>
             </template>
         </IkNavigation>
@@ -96,6 +134,7 @@ import { IkApp, IkAppBar, IkAppContent } from '@ikol/ui-kit/components/IkApp';
 import { IkNavigation, IkNavigationItem } from '@ikol/ui-kit/components/IkNavigation';
 import { IkButtonGroup } from '@ikol/ui-kit/components/IkButtonGroup';
 import { IkInput } from '@ikol/ui-kit/components/IkInput';
+import { IkDivider } from '@ikol/ui-kit/components/IkDivider';
 
 const theme = provideTheme({
     colors: {
