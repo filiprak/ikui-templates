@@ -179,17 +179,76 @@ interface Product {
 
 const theme = provideTheme({
     colors: {
-        PRIMARY_50: 'f1f3ff',
-        PRIMARY_100: 'e2e7ff',
-        PRIMARY_200: 'c4d0ff',
-        PRIMARY_300: 'a5b9ff',
-        PRIMARY_400: '7f9fff',
-        PRIMARY_500: '5689ff',
-        PRIMARY_600: '0073ff',
-        PRIMARY_700: '0054be',
-        PRIMARY_800: '003a87',
-        PRIMARY_900: '001f50',
-        PRIMARY_950: '001234',
+        NEUTRAL_WHITE: 'FFFFFF',
+        NEUTRAL_BLACK: '000000',
+        PRIMARY_50: 'F5FAF9',
+        PRIMARY_100: 'E4F1EF',
+        PRIMARY_200: 'ADFFF2',
+        PRIMARY_300: '70FFE7',
+        PRIMARY_400: '33FFDD',
+        PRIMARY_500: '00FFD5',
+        PRIMARY_600: '00D9B5',
+        PRIMARY_700: '00B395',
+        PRIMARY_800: '008C75',
+        PRIMARY_900: '006655',
+        PRIMARY_950: '004035',
+
+        SECONDARY_50: 'F9F5FA',
+        SECONDARY_100: 'F0E4F1',
+        SECONDARY_200: 'FAADFF',
+        SECONDARY_300: 'F570FF',
+        SECONDARY_400: 'F133FF',
+        SECONDARY_500: 'EE00FF',
+        SECONDARY_600: 'CA00D9',
+        SECONDARY_700: 'A700B3',
+        SECONDARY_800: '83008C',
+        SECONDARY_900: '5F0066',
+        SECONDARY_950: '3C0040',
+
+        NEUTRAL_50: 'F7F7F7',
+        NEUTRAL_100: 'EBEBEB',
+        NEUTRAL_200: 'D6D6D6',
+        NEUTRAL_300: 'B8B8B8',
+        NEUTRAL_400: '999999',
+        NEUTRAL_500: '424242',
+        NEUTRAL_600: '383838',
+        NEUTRAL_700: '2E2E2E',
+        NEUTRAL_800: '242424',
+        NEUTRAL_900: '1D1818',
+        NEUTRAL_950: '120F0F',
+        SUCCESS_50: 'F5FAF7',
+        SUCCESS_100: 'E4F1E9',
+        SUCCESS_200: 'ADFFCB',
+        SUCCESS_300: '70FFA5',
+        SUCCESS_400: '33FF7E',
+        SUCCESS_500: '00FF5E',
+        SUCCESS_600: '00D950',
+        SUCCESS_700: '00B342',
+        SUCCESS_800: '008C34',
+        SUCCESS_900: '006626',
+        SUCCESS_950: '004018',
+        WARNING_50: 'FAF9F5',
+        WARNING_100: 'F1EEE4',
+        WARNING_200: 'FFEDAD',
+        WARNING_300: 'FFE070',
+        WARNING_400: 'FFD333',
+        WARNING_500: 'FFC800',
+        WARNING_600: 'D9AA00',
+        WARNING_700: 'B38C00',
+        WARNING_800: '8C6E00',
+        WARNING_900: '665000',
+        WARNING_950: '403200',
+        ERROR_50: 'FAF5F7',
+        ERROR_100: 'F1E4E9',
+        ERROR_200: 'FFADCE',
+        ERROR_300: 'FF70A9',
+        ERROR_400: 'FF3385',
+        ERROR_500: 'FF0066',
+        ERROR_600: 'D90057',
+        ERROR_700: 'B30047',
+        ERROR_800: '8C0038',
+        ERROR_900: '660029',
+        ERROR_950: '40001A',
     },
     settings: {
         typography: {
@@ -312,7 +371,7 @@ const scrollToProducts = () => {
 }
 
 .logo-text {
-    background: linear-gradient(45deg, blue 0%, cyan 100%);
+    background: linear-gradient(45deg, var(--background-primary-solid-default) 0%, var(--background-secondary-solid-default) 150%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -320,7 +379,7 @@ const scrollToProducts = () => {
 }
 
 .logo-text--dark {
-    background: linear-gradient(45deg, rgb(123, 123, 255) 0%, cyan 100%);
+    background: linear-gradient(45deg, var(--background-primary-solid-default) 0%, var(--background-secondary-solid-default) 150%);
     -webkit-background-clip: text;
 }
 
@@ -344,7 +403,7 @@ const scrollToProducts = () => {
     justify-content: center;
     width: 100%;
     max-width: 1200px;
-    background: linear-gradient(45deg, rgb(0, 0, 202) 0%, rgb(0, 184, 184) 100%);
+    background: linear-gradient(45deg, var(--background-primary-solid-default) 0%, var(--background-secondary-solid-default) 150%);
     /* background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop'); */
     /* background-color: rgba(from var(--background-primary-solid-default) calc(r - var(--bg)) calc(g - var(--bg)) calc(b - var(--bg)) / 0.5); */
     background-size: cover;
