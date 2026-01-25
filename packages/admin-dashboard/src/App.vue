@@ -3,7 +3,7 @@
         <IkAppBar class="topbar"
                   :height="72">
             <IkFlex grow_and_fixed>
-                <span class="ik-text--xl">Dashboard</span>
+                <span class="ik-text--display-xs">Dashboard</span>
                 <IkFlex spacing="5">
                     <IkInput placeholder="Type here to start searching..."
                              style="width: 400px"
