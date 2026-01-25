@@ -173,7 +173,7 @@
                         </template>
                         <div class="ik-text--normal ik-text--default-light ik-mb-4">{{ i.title }}</div>
                         <IkProgressBar :percentage="i.percentage"
-                                       style="--content-primary-regular-default: var(--background-primary-solid-default)"
+                                       class="gradient-progress"
                                        design="primary"
                                        :height="12">
                         </IkProgressBar>
@@ -392,5 +392,9 @@ const transactions = [
 .transactions > div:first-child {
     background-color: var(--background-neutral-regular-default);
     border-radius: var(--radius-5);
+}
+
+.gradient-progress :global(.ik-progress-bar__bar-inner) {
+    background: linear-gradient(90deg, var(--background-secondary-solid-default) -80%, var(--background-primary-solid-default) 100%);
 }
 </style>

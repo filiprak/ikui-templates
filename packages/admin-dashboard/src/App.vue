@@ -151,6 +151,7 @@ const theme = provideTheme({
         PRIMARY_800: '008C75',
         PRIMARY_900: '006655',
         PRIMARY_950: '004035',
+        
         SECONDARY_50: 'F9F5FA',
         SECONDARY_100: 'F0E4F1',
         SECONDARY_200: 'FAADFF',
@@ -162,6 +163,7 @@ const theme = provideTheme({
         SECONDARY_800: '83008C',
         SECONDARY_900: '5F0066',
         SECONDARY_950: '3C0040',
+
         NEUTRAL_50: 'F7F7F7',
         NEUTRAL_100: 'EBEBEB',
         NEUTRAL_200: 'D6D6D6',
