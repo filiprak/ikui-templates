@@ -67,6 +67,7 @@
                                         <IkTextField v-model="formData.firstName"
                                                      label="First Name"
                                                      placeholder="John"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="given-name" />
                                     </IkGridItem>
@@ -75,6 +76,7 @@
                                         <IkTextField v-model="formData.lastName"
                                                      label="Last Name"
                                                      placeholder="Doe"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="family-name" />
                                     </IkGridItem>
@@ -83,6 +85,7 @@
                                                      label="Email Address"
                                                      type="email"
                                                      placeholder="john.doe@example.com"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="email" />
                                     </IkGridItem>
@@ -91,6 +94,7 @@
                                                      label="Phone Number"
                                                      type="tel"
                                                      placeholder="+1 (555) 123-4567"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="tel" />
                                     </IkGridItem>
@@ -113,6 +117,7 @@
                                         <IkTextField v-model="formData.address"
                                                      label="Street Address"
                                                      placeholder="123 Main Street"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="street-address" />
                                     </IkGridItem>
@@ -120,6 +125,7 @@
                                         <IkTextField v-model="formData.address2"
                                                      label="Apartment, suite, etc. (optional)"
                                                      placeholder="Apt 4B"
+                                                     variant="filled"
                                                      autocomplete="address-line2" />
                                     </IkGridItem>
                                     <IkGridItem xxs-12
@@ -127,6 +133,7 @@
                                         <IkTextField v-model="formData.city"
                                                      label="City"
                                                      placeholder="New York"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="address-level2" />
                                     </IkGridItem>
@@ -138,6 +145,7 @@
                                                        text_key="name"
                                                        value_key="code"
                                                        placeholder="Select state"
+                                                       variant="filled"
                                                        required />
                                     </IkGridItem>
                                     <IkGridItem xxs-12
@@ -145,6 +153,7 @@
                                         <IkTextField v-model="formData.zipCode"
                                                      label="ZIP / Postal Code"
                                                      placeholder="10001"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="postal-code" />
                                     </IkGridItem>
@@ -156,6 +165,7 @@
                                                         text_key="name"
                                                         value_key="code"
                                                         placeholder="Select country"
+                                                        variant="filled"
                                                         required />
                                     </IkGridItem>
                                 </IkGrid>
@@ -180,6 +190,7 @@
                                                        text_key="name"
                                                        value_key="value"
                                                        placeholder="Select payment method"
+                                                       variant="filled"
                                                        required />
                                     </IkGridItem>
                                     <IkGridItem xxs-12
@@ -187,6 +198,7 @@
                                         <IkTextField v-model="formData.cardNumber"
                                                      label="Card Number"
                                                      placeholder="1234 5678 9012 3456"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="cc-number"
                                                      maxlength="19" />
@@ -197,6 +209,7 @@
                                         <IkTextField v-model="formData.cardExpiry"
                                                      label="Expiry Date"
                                                      placeholder="MM/YY"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="cc-exp"
                                                      maxlength="5" />
@@ -208,6 +221,7 @@
                                                      label="CVV"
                                                      placeholder="123"
                                                      type="password"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="cc-csc"
                                                      maxlength="4" />
@@ -216,6 +230,7 @@
                                         <IkTextareaField v-model="formData.notes"
                                                          label="Order Notes (optional)"
                                                          placeholder="Special instructions for your order..."
+                                                         variant="filled"
                                                          :rows="3" />
                                     </IkGridItem>
                                 </IkGrid>
@@ -232,19 +247,6 @@
                                                  label="Save my information for future purchases"
                                                  class="ik-mt-4" />
                             </section>
-
-                            <!-- Submit Button -->
-                            <IkFlex justify_end
-                                    class="ik-mt-8">
-                                <IkButton design="primary"
-                                          size="lg"
-                                          round
-                                          type="submit">
-                                    <IkIcon icon="lock"
-                                            class="ik-mr-3" />
-                                    Complete Order
-                                </IkButton>
-                            </IkFlex>
                         </IkForm>
                     </IkGridItem>
 
@@ -303,6 +305,17 @@
                                     <span class="ik-text--xl ik-text--bold">${{ total }}.00</span>
                                 </IkFlex>
                             </div>
+
+                            <!-- Submit Button -->
+                            <IkButton design="primary"
+                                      size="lg"
+                                      round
+                                      class="ik-mt-8 submit-button"
+                                      @click="handleSubmit">
+                                <IkIcon icon="lock"
+                                        class="ik-mr-3" />
+                                Complete Order
+                            </IkButton>
                         </div>
                     </IkGridItem>
                 </IkGrid>
@@ -572,15 +585,16 @@ const handleSubmit = () => {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: var(--background-neutral-strong-default);
+    background-color: var(--background-neutral-light-default);
 }
 
 /* Header */
 .header {
-    background-color: var(--background-neutral-strong-default);
+    background-color: var(--background-neutral-white-default);
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 1px solid var(--border-neutral-light-default);
 }
 
 .header-content {
@@ -625,6 +639,7 @@ const handleSubmit = () => {
     background-color: var(--background-neutral-white-default);
     border-radius: var(--s-8);
     padding: var(--s-8);
+    box-shadow: var(--shadow-neutral-sm);
 }
 
 .checkout-section {
@@ -644,6 +659,7 @@ const handleSubmit = () => {
     padding: var(--s-8);
     position: sticky;
     top: 100px;
+    box-shadow: var(--shadow-neutral-sm);
 }
 
 .summary-title {
@@ -690,6 +706,10 @@ const handleSubmit = () => {
 
 .summary-totals {
     padding-top: var(--s-4);
+}
+
+.submit-button {
+    width: 100%;
 }
 
 /* Footer */
