@@ -590,7 +590,7 @@ const handleSubmit = () => {
 
 /* Header */
 .header {
-    background-color: var(--background-neutral-white-default);
+    background-color: var(--background-neutral-strong-default);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -636,7 +636,7 @@ const handleSubmit = () => {
 
 /* Checkout Form */
 .checkout-form {
-    background-color: var(--background-neutral-white-default);
+    background-color: var(--background-neutral-strong-default);
     border-radius: var(--s-8);
     padding: var(--s-8);
     box-shadow: var(--shadow-neutral-sm);
@@ -654,7 +654,7 @@ const handleSubmit = () => {
 
 /* Order Summary */
 .order-summary {
-    background-color: var(--background-neutral-white-default);
+    background-color: var(--background-neutral-strong-default);
     border-radius: var(--s-8);
     padding: var(--s-8);
     position: sticky;
@@ -714,7 +714,7 @@ const handleSubmit = () => {
 
 /* Footer */
 .footer {
-    background-color: var(--background-neutral-white-default);
+    background-color: var(--background-neutral-strong-default);
     border-top: 1px solid var(--border-neutral-light-default);
     margin-top: auto;
 }
