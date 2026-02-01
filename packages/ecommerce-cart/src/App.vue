@@ -246,30 +246,29 @@
 
                             <IkList class="summary-items">
                                 <IkListItem v-for="item in orderItems"
+                                            class="ik-pa-0 ik-pb-4"
                                             :key="item.id"
-                                            border_bottom
                                             no_hover>
                                     <template #prepend>
                                         <IkImage :src="item.image"
                                                  :alt="item.name"
+                                                 :size="64"
                                                  cover
                                                  class="item-image" />
                                     </template>
                                     <span class="item-name ik-text--md ik-text--semibold">{{ item.name }}</span>
                                     <template #secondary>
-                                        <IkFlex direction="column"
-                                                spacing="2">
-                                            <span class="item-category ik-text--sm ik-text--upper">{{ item.category }}</span>
-                                            <span class="item-quantity ik-text--sm">Qty: {{ item.quantity }}</span>
-                                        </IkFlex>
+                                        Quantity: {{ item.quantity }}
                                     </template>
                                     <template #append>
-                                        <span class="item-price ik-text--md ik-text--semibold">${{ item.price }}.00</span>
+                                        <span class="item-price ik-text--md ik-text--semibold">
+                                            ${{ item.price }}.00
+                                        </span>
                                     </template>
                                 </IkListItem>
                             </IkList>
 
-                            <IkDivider class="ik-my-6" />
+                            <IkDivider class="ik-my-4" />
 
                             <div class="summary-totals">
                                 <IkFlex justify_space
@@ -294,7 +293,7 @@
                                 </IkFlex>
                             </div>
 
-                            <IkDivider class="ik-my-8" />
+                            <IkDivider class="ik-my-4" />
 
                             <!-- Terms and Conditions -->
                             <div>
@@ -637,8 +636,8 @@ const handleSubmit = () => {
 /* Checkout Form */
 .checkout-form {
     background-color: var(--background-neutral-strong-default);
-    border-radius: var(--s-8);
-    padding: var(--s-8);
+    border-radius: var(--s-11);
+    padding: var(--s-10);
     box-shadow: var(--shadow-neutral-sm);
 }
 
@@ -655,8 +654,8 @@ const handleSubmit = () => {
 /* Order Summary */
 .order-summary {
     background-color: var(--background-neutral-strong-default);
-    border-radius: var(--s-8);
-    padding: var(--s-8);
+    border-radius: var(--s-11);
+    padding: var(--s-10);
     position: sticky;
     top: 100px;
     box-shadow: var(--shadow-neutral-sm);
@@ -671,8 +670,6 @@ const handleSubmit = () => {
 }
 
 .item-image {
-    width: 80px;
-    height: 80px;
     border-radius: var(--s-2);
     flex-shrink: 0;
 }
@@ -682,10 +679,6 @@ const handleSubmit = () => {
 }
 
 .item-category {
-    color: var(--content-neutral-regular-default);
-}
-
-.item-quantity {
     color: var(--content-neutral-regular-default);
 }
 
