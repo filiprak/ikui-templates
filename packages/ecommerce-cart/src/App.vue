@@ -50,15 +50,15 @@
                     <!-- Checkout Form -->
                     <IkGridItem xxs-12
                                 md-8>
-                        <IkForm @ik-submit="handleSubmit"
-                                class="checkout-form">
-                            <!-- Customer Information -->
-                            <section class="checkout-section">
-                                <h2 class="section-title ik-text--display-xs ik-text--semibold ik-mb-6">
-                                    <IkIcon icon="user"
-                                            class="ik-mr-3" />
-                                    Customer Information
-                                </h2>
+                        <IkForm @ik-submit="handleSubmit">
+                            <!-- Step 1: Customer Information -->
+                            <div class="checkout-step">
+                                <div class="step-header">
+                                    <div class="step-number">1</div>
+                                    <h2 class="section-title ik-text--display-xs ik-text--semibold">
+                                        Customer Information
+                                    </h2>
+                                </div>
 
                                 <IkGrid spacing_x="6"
                                         spacing_y="6">
@@ -101,17 +101,16 @@
                                                      autocomplete="tel" />
                                     </IkGridItem>
                                 </IkGrid>
-                            </section>
+                            </div>
 
-                            <IkDivider class="ik-my-8" />
-
-                            <!-- Shipping Address -->
-                            <section class="checkout-section">
-                                <h2 class="section-title ik-text--display-xs ik-text--semibold ik-mb-6">
-                                    <IkIcon icon="map-marker-alt"
-                                            class="ik-mr-3" />
-                                    Shipping Address
-                                </h2>
+                            <!-- Step 2: Shipping Address -->
+                            <div class="checkout-step">
+                                <div class="step-header">
+                                    <div class="step-number">2</div>
+                                    <h2 class="section-title ik-text--display-xs ik-text--semibold">
+                                        Shipping Address
+                                    </h2>
+                                </div>
 
                                 <IkGrid spacing_x="6"
                                         spacing_y="6">
@@ -171,29 +170,26 @@
                                                        required />
                                     </IkGridItem>
                                 </IkGrid>
-                            </section>
+                            </div>
 
-                            <IkDivider class="ik-my-8" />
-
-                            <!-- Payment Information -->
-                            <section class="checkout-section">
-                                <h2 class="section-title ik-text--display-xs ik-text--semibold ik-mb-6">
-                                    <IkIcon icon="credit-card"
-                                            class="ik-mr-3" />
-                                    Payment Information
-                                </h2>
+                            <!-- Step 3: Payment Information -->
+                            <div class="checkout-step">
+                                <div class="step-header">
+                                    <div class="step-number">3</div>
+                                    <h2 class="section-title ik-text--display-xs ik-text--semibold">
+                                        Payment Information
+                                    </h2>
+                                </div>
 
                                 <IkGrid spacing_x="6"
                                         spacing_y="6">
                                     <IkGridItem xxs-12>
-                                        <IkSelectField v-model="formData.paymentMethod"
-                                                       label="Payment Method"
-                                                       :items="paymentMethods"
-                                                       text_key="name"
-                                                       value_key="value"
-                                                       placeholder="Select payment method"
-                                                       variant="outline"
-                                                       required />
+                                        <IkRadioGroupField v-model="formData.paymentMethod"
+                                                           label="Payment Method"
+                                                           :items="paymentMethods"
+                                                           text_key="name"
+                                                           value_key="value"
+                                                           required />
                                     </IkGridItem>
                                     <IkGridItem xxs-12
                                                 v-if="formData.paymentMethod === 'card'">
@@ -236,7 +232,7 @@
                                                          :rows="3" />
                                     </IkGridItem>
                                 </IkGrid>
-                            </section>
+                            </div>
                         </IkForm>
                     </IkGridItem>
 
@@ -354,6 +350,7 @@ import { IkIcon } from '@ikol/ui-kit/components/IkIcon';
 import { IkForm } from '@ikol/ui-kit/components/IkForm';
 import { IkTextField } from '@ikol/ui-kit/components/IkTextField';
 import { IkSelectField } from '@ikol/ui-kit/components/IkSelectField';
+import { IkRadioGroupField } from '@ikol/ui-kit/components/IkRadioGroupField';
 import { IkTextareaField } from '@ikol/ui-kit/components/IkTextareaField';
 import { IkCheckboxField } from '@ikol/ui-kit/components/IkCheckboxField';
 import { IkDivider } from '@ikol/ui-kit/components/IkDivider';
@@ -635,22 +632,39 @@ const handleSubmit = () => {
     color: var(--content-neutral-strong-default);
 }
 
-/* Checkout Form */
-.checkout-form {
+/* Checkout Steps */
+.checkout-step {
+    padding: var(--s-10);
     background-color: var(--background-neutral-strong-default);
     border-radius: var(--s-11);
-    padding: var(--s-10);
     box-shadow: var(--shadow-neutral-sm);
+    margin-bottom: var(--s-8);
 }
 
-.checkout-section {
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
     margin-bottom: var(--s-6);
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(45deg, var(--background-primary-solid-default) 0%, var(--background-secondary-solid-default) 150%);
+    color: var(--content-neutral-white-default);
+    font-weight: 700;
+    font-size: var(--text-md);
+    flex-shrink: 0;
 }
 
 .section-title {
     color: var(--content-neutral-strong-default);
-    display: flex;
-    align-items: center;
+    margin: 0;
 }
 
 /* Order Summary */
