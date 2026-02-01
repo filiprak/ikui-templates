@@ -244,32 +244,30 @@
                         <div class="order-summary">
                             <h2 class="summary-title ik-text--display-xs ik-text--semibold ik-mb-6">Order Summary</h2>
 
-                            <div class="summary-items">
-                                <div v-for="item in orderItems"
-                                     :key="item.id"
-                                     class="summary-item ik-mb-6">
-                                    <IkFlex spacing="4"
-                                            align="start">
+                            <IkList class="summary-items">
+                                <IkListItem v-for="item in orderItems"
+                                            :key="item.id"
+                                            border_bottom
+                                            no_hover>
+                                    <template #prepend>
                                         <IkImage :src="item.image"
                                                  :alt="item.name"
                                                  cover
                                                  class="item-image" />
+                                    </template>
+                                    <span class="item-name ik-text--md ik-text--semibold">{{ item.name }}</span>
+                                    <template #secondary>
                                         <IkFlex direction="column"
-                                                spacing="2"
-                                                grow>
-                                            <span class="item-name ik-text--md ik-text--semibold">{{ item.name }}</span>
-                                            <span class="item-category ik-text--sm ik-text--upper">{{ item.category
-                                            }}</span>
-                                            <IkFlex justify_space
-                                                    align="center">
-                                                <span class="item-quantity ik-text--sm">Qty: {{ item.quantity }}</span>
-                                                <span class="item-price ik-text--md ik-text--semibold">${{ item.price
-                                                }}.00</span>
-                                            </IkFlex>
+                                                spacing="2">
+                                            <span class="item-category ik-text--sm ik-text--upper">{{ item.category }}</span>
+                                            <span class="item-quantity ik-text--sm">Qty: {{ item.quantity }}</span>
                                         </IkFlex>
-                                    </IkFlex>
-                                </div>
-                            </div>
+                                    </template>
+                                    <template #append>
+                                        <span class="item-price ik-text--md ik-text--semibold">${{ item.price }}.00</span>
+                                    </template>
+                                </IkListItem>
+                            </IkList>
 
                             <IkDivider class="ik-my-6" />
 
@@ -358,6 +356,7 @@ import { IkSelectField } from '@ikol/ui-kit/components/IkSelectField';
 import { IkTextareaField } from '@ikol/ui-kit/components/IkTextareaField';
 import { IkCheckboxField } from '@ikol/ui-kit/components/IkCheckboxField';
 import { IkDivider } from '@ikol/ui-kit/components/IkDivider';
+import { IkList, IkListItem } from '@ikol/ui-kit/components/IkList';
 import ThemeSwitch from './ThemeSwitch.vue';
 import { provideTheme } from '@ikol/ui-kit/composables/theme';
 
@@ -669,17 +668,6 @@ const handleSubmit = () => {
 
 .summary-items {
     margin-bottom: var(--s-6);
-}
-
-.summary-item {
-    padding-bottom: var(--s-6);
-    border-bottom: 1px solid var(--border-neutral-light-default);
-}
-
-.summary-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .item-image {
