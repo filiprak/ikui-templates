@@ -67,7 +67,7 @@
                                         <IkTextField v-model="formData.firstName"
                                                      label="First Name"
                                                      placeholder="John"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="given-name" />
                                     </IkGridItem>
@@ -76,7 +76,7 @@
                                         <IkTextField v-model="formData.lastName"
                                                      label="Last Name"
                                                      placeholder="Doe"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="family-name" />
                                     </IkGridItem>
@@ -86,7 +86,7 @@
                                                      label="Email Address"
                                                      type="email"
                                                      placeholder="john.doe@example.com"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="email" />
                                     </IkGridItem>
@@ -96,7 +96,7 @@
                                                      label="Phone Number"
                                                      type="tel"
                                                      placeholder="+1 (555) 123-4567"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="tel" />
                                     </IkGridItem>
@@ -118,7 +118,7 @@
                                         <IkTextField v-model="formData.address"
                                                      label="Street Address"
                                                      placeholder="123 Main Street"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="street-address" />
                                     </IkGridItem>
@@ -126,7 +126,7 @@
                                         <IkTextField v-model="formData.address2"
                                                      label="Apartment, suite, etc. (optional)"
                                                      placeholder="Apt 4B"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      autocomplete="address-line2" />
                                     </IkGridItem>
                                     <IkGridItem xxs-12
@@ -134,7 +134,7 @@
                                         <IkTextField v-model="formData.city"
                                                      label="City"
                                                      placeholder="New York"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="address-level2" />
                                     </IkGridItem>
@@ -146,7 +146,7 @@
                                                        text_key="name"
                                                        value_key="code"
                                                        placeholder="Select state"
-                                                       variant="outline"
+                                                       variant="filled"
                                                        required />
                                     </IkGridItem>
                                     <IkGridItem xxs-12
@@ -154,7 +154,7 @@
                                         <IkTextField v-model="formData.zipCode"
                                                      label="ZIP / Postal Code"
                                                      placeholder="10001"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="postal-code" />
                                     </IkGridItem>
@@ -166,7 +166,7 @@
                                                        text_key="name"
                                                        value_key="code"
                                                        placeholder="Select country"
-                                                       variant="outline"
+                                                       variant="filled"
                                                        required />
                                     </IkGridItem>
                                 </IkGrid>
@@ -196,7 +196,7 @@
                                         <IkTextField v-model="formData.cardNumber"
                                                      label="Card Number"
                                                      placeholder="1234 5678 9012 3456"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="cc-number"
                                                      maxlength="19" />
@@ -207,7 +207,7 @@
                                         <IkTextField v-model="formData.cardExpiry"
                                                      label="Expiry Date"
                                                      placeholder="MM/YY"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="cc-exp"
                                                      maxlength="5" />
@@ -219,7 +219,7 @@
                                                      label="CVV"
                                                      placeholder="123"
                                                      type="password"
-                                                     variant="outline"
+                                                     variant="filled"
                                                      required
                                                      autocomplete="cc-csc"
                                                      maxlength="4" />
@@ -228,7 +228,7 @@
                                         <IkTextareaField v-model="formData.notes"
                                                          label="Order Notes (optional)"
                                                          placeholder="Special instructions for your order..."
-                                                         variant="outline"
+                                                         variant="filled"
                                                          :rows="3" />
                                     </IkGridItem>
                                 </IkGrid>
