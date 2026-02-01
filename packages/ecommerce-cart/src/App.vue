@@ -80,7 +80,8 @@
                                                      required
                                                      autocomplete="family-name" />
                                     </IkGridItem>
-                                    <IkGridItem xxs-12>
+                                    <IkGridItem xxs-12
+                                                sm-6>
                                         <IkTextField v-model="formData.email"
                                                      label="Email Address"
                                                      type="email"
@@ -89,7 +90,8 @@
                                                      required
                                                      autocomplete="email" />
                                     </IkGridItem>
-                                    <IkGridItem xxs-12>
+                                    <IkGridItem xxs-12
+                                                sm-6>
                                         <IkTextField v-model="formData.phone"
                                                      label="Phone Number"
                                                      type="tel"
