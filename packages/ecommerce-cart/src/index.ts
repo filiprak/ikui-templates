@@ -4,7 +4,7 @@ import { createIkolUI } from '@ikol/ui-kit';
 
 const ui = createIkolUI({
     config: {
-        ICONS_CDN_URL: 'https://icons.ikui-cdn.workers.dev/fa/7.1.0',
+        ICONS_CDN_URL: 'https://icons.ikui.dev/fa/7.1.0',
     },
 });
 
